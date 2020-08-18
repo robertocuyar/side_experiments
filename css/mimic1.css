@@ -1,3 +1,21 @@
-*
-/*{border: 1px black solid;}*/
+/**
+{border: 1px black solid;}*/
+@media only screen and (max-width: 568px) {
+    /* .drop_items {
+         box-sizing: content-box !important;
+     }*/
 
+     .navbar_links_one {
+         /*right: 120px !important;*/
+         left: -72px !important;
+     }
+    .navbar_links_two input{
+        border-right: 0 !important;
+        border-color: #6c757d !important;
+    }
+    .search_button_sm button{
+        border-color:#6c757d !important;
+        border-left: 0 !important;
+    }
+
+}
