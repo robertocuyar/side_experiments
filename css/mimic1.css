@@ -32,13 +32,13 @@
     height: 22px !important;
 }
 .top_banner{
-   /* background: url(../img/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg) no-repeat center center fixed;
+    background: url(../img/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;*/
+    background-size: cover;
 }
-}
+
 @media only screen and (max-width: 568px) {
     /* .drop_items {
          box-sizing: content-box !important;
@@ -47,11 +47,14 @@
      .navbar_links_one {
          /*right: 120px !important;*/
          left: -112px !important;
-         top: 47px !important;
+         top: 46px !important;
      }
     .navbar_links_two {
         left: -200px !important;
-        top: 47px !important;
+        top: 46px !important;
+    }
+    .top_banner{
+        min-height: 140px !important;
     }
 
 
