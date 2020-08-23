@@ -11,9 +11,13 @@
     padding-right: 6px !important;
     color: black;
 }
+.navbar_links_one{
+    z-index: 1001 !important;
+}
 .navbar_links_two {
     min-width: 16rem !important;
     min-height: 5rem !important;
+    z-index: 1000 !important;
 }
 .navbar_links_two input{
     border-right: 0 !important;
@@ -26,6 +30,14 @@
 }
 .search_button_sm {
     height: 22px !important;
+}
+.top_banner{
+   /* background: url(../img/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
 }
 @media only screen and (max-width: 568px) {
     /* .drop_items {
