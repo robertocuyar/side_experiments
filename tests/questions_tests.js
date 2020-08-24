@@ -1,6 +1,6 @@
 describe("confirmBlue", function() {
     it("should be defined", function() {
-        expect(confirmBlue).toBeDefined();
+        expect(typeof confirmBlue).toBe('function');
     });
 
 });
