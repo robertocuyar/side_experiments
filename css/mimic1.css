@@ -38,6 +38,17 @@
     -o-background-size: cover;
     background-size: cover;
 }
+section a {
+    color: white;
+    text-decoration: none;
+}
+.boxing_section {
+    background: url(../img/boxing.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 @media only screen and (max-width: 568px) {
     /* .drop_items {
