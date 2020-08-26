@@ -32,7 +32,7 @@
     height: 22px !important;
 }
 .top_banner{
-    background: url(../img/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg) no-repeat center center fixed;
+    background: url(../img/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -53,7 +53,7 @@ section p {
 
 
 .boxing_section {
-    background: url(../img/boxing.jpg) no-repeat center center fixed;
+    background: url(../img/boxing.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -61,12 +61,65 @@ section p {
     padding: 0;
 }
 .basketball_section{
-    background: url(../img/basketball.jpg) no-repeat center center fixed;
+    background: url(../img/basketball.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     padding: 0;
+}
+.soccer_section {
+    background: url(../img/soccer.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+}
+.football_section {
+    background: url(../img/football.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+}
+.baseball_section {
+    background: url(../img/baseball.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+}
+.events_section {
+    background: url(../img/events.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+}
+.adventure_section {
+    background: url(../img/surf.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+}
+.outreach_section {
+    background: url(../img/track.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+}
+section p {
+    font-size: 45px;
+    text-transform: uppercase;
+    text-shadow: 0px 5px 18px black;
 }
 
 @media only screen and (max-width: 568px) {
@@ -85,6 +138,9 @@ section p {
     }
     .top_banner{
         min-height: 140px !important;
+    }
+    .section_img {
+        min-height: 190px !important;
     }
 
 
