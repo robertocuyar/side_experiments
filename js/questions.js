@@ -1,15 +1,15 @@
 "use strict";
-let positive = "You like ";
-let negative = "You don't like ";
+let positive = '<a href="#" onclick = "storeData()">You like ';
+let negative = '<a href="#" onclick = "storeData()">You don\'t like ';
 
 let confirmGreen = function() {
     let response2 = confirm("Do you like Green?");
     if (response2) {
-        document.getElementById("green").innerHTML = positive + 'green.';
-        window.localStorage.setItem('response', 'green chosen');
+        document.getElementById("green").innerHTML = positive + 'green.</a>';
+
         return "ff";
     } else {
-        document.getElementById("green").innerHTML = negative + 'green.';
+        document.getElementById("green").innerHTML = negative + 'green.</a>';
         return "00";
     }
 }
@@ -17,11 +17,11 @@ let confirmGreen = function() {
 let confirmRed = function() {
     let response2 = confirm("Do you like Red?");
     if (response2) {
-        document.getElementById("red").innerHTML = positive + 'red.';
-        window.localStorage.setItem('response', 'red chosen');
+        document.getElementById("red").innerHTML = positive + 'red.</a>';
+
         return "ff"
     } else {
-        document.getElementById("red").innerHTML = negative + 'red.';
+        document.getElementById("red").innerHTML = negative + 'red.</a>';
         return "00"
     }
 
@@ -30,12 +30,12 @@ let confirmRed = function() {
 let confirmBlue = function(){
     let response = confirm("Do you like Blue?");
     if(response) {
-        document.getElementById("blue").innerHTML = positive + 'blue.';
-        window.localStorage.setItem('response', 'blue chosen');
+        document.getElementById("blue").innerHTML = positive + 'blue.</a>';
+
         return "ff"
     }
     else {
-        document.getElementById("blue").innerHTML = negative + 'blue.';
+        document.getElementById("blue").innerHTML = negative + 'blue.</a>';
         return "00"
     }
 
@@ -44,6 +44,16 @@ let confirmBlue = function(){
 var backgroundBody = document.getElementsByTagName('body')[0];
 backgroundBody.style['background-color'] = ('#' + confirmRed() + confirmGreen() + confirmBlue());
 
+/*window.localStorage.setItem('response', 'blue chosen');
+window.localStorage.setItem('response', 'green chosen');
 console.log(window.localStorage.getItem('response'));
+window.localStorage.setItem('response', 'red chosen');*/
 
-
+let storeData = function(){
+    window.localStorage.setItem('response', 'response recorded');
+}
+let clearLocal = function() {
+    window.localStorage.clear();
+}
+let dataShow = window.localStorage.getItem('response');
+document.getElementById('display_data').innerHTML = dataShow;
