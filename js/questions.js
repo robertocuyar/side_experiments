@@ -43,17 +43,56 @@ let confirmBlue = function(){
 
 var backgroundBody = document.getElementsByTagName('body')[0];
 backgroundBody.style['background-color'] = ('#' + confirmRed() + confirmGreen() + confirmBlue());
+let displayArray = [];
+function defaultDisplay() {
+    var i = 0;
+    while (window.localStorage.getItem('response' + i)) {
+        let dataShow = window.localStorage.getItem('response' + i);
+        let divResponse = document.createElement('div');
+        divResponse.innerHTML = "<p id = '" + i + "'>" + dataShow + "       <a href = '#'" + " onclick ='erasePart(" + i + ")'>Remove</a></p>";
+        document.getElementById("display_data").appendChild(divResponse);
+        displayArray.push(dataShow);
+        i++;
+    }
+}
+defaultDisplay();
 
-/*window.localStorage.setItem('response', 'blue chosen');
-window.localStorage.setItem('response', 'green chosen');
-console.log(window.localStorage.getItem('response'));
-window.localStorage.setItem('response', 'red chosen');*/
+let storeData = function() {
+    displayArray.push('response');
+    let displayString = "";
+    displayArray.forEach(function (color, i) {
+        window.localStorage.setItem('response' + i, color);
+    });
+    let parent = document.getElementById('display_data');
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+    for (var i = 0; i < displayArray.length; i++) {
+        let dataShow = window.localStorage.getItem('response' + i);
+        let divResponse = document.createElement('div');
+        divResponse.innerHTML = "<p id = '" + i + "'>" + dataShow + "       <a href = '#'" + " onclick ='erasePart(" + i + ")'>Remove</a></p>";
+        document.getElementById("display_data").appendChild(divResponse)
 
-let storeData = function(){
-    window.localStorage.setItem('response', 'response recorded');
+        //document.getElementById('display_data').innerHTML = dataShow;
+
+    }
 }
 let clearLocal = function() {
-    window.localStorage.clear();
+   let dataClear = window.localStorage.clear();
+   displayArray = [];
+    document.getElementById('display_data').innerHTML = "";
+
 }
-let dataShow = window.localStorage.getItem('response');
-document.getElementById('display_data').innerHTML = dataShow;
+
+
+
+let erasePart = function(input){
+
+}
+/*var x = [1,2,3,4,5];
+let output = "";
+x.forEach(function(item){
+    output += " " +(item + 1);
+})
+console.log(output);*/
+
