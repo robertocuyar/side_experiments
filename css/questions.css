@@ -7,3 +7,10 @@
 body {
     background-color: var(--main-bg-color) !important;
 }
+.nav_main {
+    background-color: var(--bold-color);
+}
+.nav_side {
+    background-color: var(--bold-main-color);
+
+}
