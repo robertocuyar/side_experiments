@@ -43,6 +43,9 @@ let confirmBlue = function(){
 
 var backgroundBody = document.getElementsByTagName('body')[0];
 backgroundBody.style['background-color'] = ('#' + confirmRed() + confirmGreen() + confirmBlue());
+
+
+
 let displayArray = [];
 function defaultDisplay() {
     var i = 0;
