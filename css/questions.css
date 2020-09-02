@@ -4,3 +4,6 @@
     --main-color: #79bac1;
     --bold-main-color: #2a7886;
 }
+body {
+    background-color: var(--main-bg-color) !important;
+}

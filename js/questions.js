@@ -41,8 +41,8 @@ let confirmBlue = function(){
 
 }
 
-var backgroundBody = document.getElementsByTagName('body')[0];
-backgroundBody.style['background-color'] = ('#' + confirmRed() + confirmGreen() + confirmBlue());
+var backgroundTest1 = document.getElementById('test_1');
+backgroundTest1.style.backgroundColor = ('#' + confirmRed() + confirmGreen() + confirmBlue());
 
 
 
