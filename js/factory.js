@@ -1,4 +1,6 @@
 "use strict"
 $(document).ready(function() {
-    $('.coal_container').append("<a class ='coal'></a>");
+    $('#coal').click(function() {
+        $('.coal_container').append("<a class ='coal'><div></div></a>");
+    });
 })

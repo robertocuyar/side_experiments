@@ -5,7 +5,10 @@ a {
     color: black !important;
     text-decoration: none !important;
 }
-
-.coal_container a {
-
+.coal_container div {
+    background-image: url("../img/coal.jpeg");
+   background-size: cover;
+    background-repeat: no-repeat;
+    height: 125px !important;
+    width: 150px !important;
 }
