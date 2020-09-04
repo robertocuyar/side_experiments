@@ -1,0 +1,11 @@
+.factory_component {
+    border: 1px solid black;
+}
+a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.coal_container a {
+
+}
