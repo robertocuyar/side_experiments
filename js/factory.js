@@ -18,10 +18,17 @@ $(document).ready(function () {
             }
         })
     }
+    function updateListenerBI() {
+        $('.iron_plate_inventory').off().on('click', function(){
+            burnOff('.iron_plate_inventory')
+            $('#build_inventory').append(itemDisplay('iron_plate_build'))
+        })
+    }
     function updateListenerIF() {
            $('.iron_plate_furnace').off().on('click', function(){
                burnOff('.iron_plate_furnace')
                $('.inventory').append(itemDisplay('iron_plate_inventory'))
+               updateListenerBI();
            })
     }
     $('#furnace').click(function () {
