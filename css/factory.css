@@ -12,3 +12,10 @@ a {
     height: 125px !important;
     width: 150px !important;
 }
+.iron_furnace div {
+    background-image: url("../img/ironore.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 125px !important;
+    width: 150px !important;
+}
