@@ -1,10 +1,13 @@
 "use strict"
 $(document).ready(function() {
+    function itemDisplay(type){
+        return "<a class ='" + type + "'><div class='item'></div></a>"
+    }
     $('#coal').click(function () {
-        $('.coal_container').append("<a class ='coal'><div></div></a>");
+        $('.coal_container').append(itemDisplay('coal'));
     });
     $('#iron_btn').click(function () {
-        $('.iron_furnace').append("<a class = 'iron'><div></div></a>");
+        $('.iron_furnace').append(itemDisplay('iron'));
     });
     function burnOff(mineral){
         $(mineral).each(function (index) {
@@ -21,8 +24,10 @@ $(document).ready(function() {
             } else {
                 burnOff('.coal')
                 burnOff('.iron')
+                $('.smelter_product').append(itemDisplay('iron_plate'))
             }
         }, interval);
 
     })
+
 })

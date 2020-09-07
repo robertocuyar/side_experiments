@@ -5,17 +5,23 @@ a {
     color: black !important;
     text-decoration: none !important;
 }
-.coal_container div {
-    background-image: url("../img/coal.jpeg");
-   background-size: cover;
-    background-repeat: no-repeat;
+.item {
     height: 125px !important;
     width: 150px !important;
 }
-.iron_furnace div {
+.coal div {
+    background-image: url("../img/coal.jpeg");
+   background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.iron div {
     background-image: url("../img/ironore.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 125px !important;
-    width: 150px !important;
+}
+.iron_plate div {
+    background-image: url("../img/ironplate.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
