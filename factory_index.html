@@ -19,6 +19,20 @@
 </nav>
 <main class="">
     <div class="row">
+        <section class=" container col-12 inventory factory_component d-flex flex-wrap">Inventory</section>
+    </div>
+    <div class="row">
+        <section class="container col-6 factory_component" id="build_option">
+            <form>
+                <label for ="build_smelter">Place 6 iron plates in the build box to build a copper furnace from your inventory.</label>
+                <br>
+                <button type="button" id="build_smelter">Build</button>
+            </form>
+            <a style="cursor:pointer" id="clear_build">Clear Build Inventory</a>
+        </section>
+        <section class="container col-6 factory_component d-flex flex-wrap" id="build_inventory">Build Box</section>
+    </div>
+    <div class="row">
         <section class="col-4 coal_button factory_component container">
             <form>
                 <label for ="coal">Click the button to mine coal for the furnace.</label>
@@ -49,19 +63,27 @@
         <section class="col-4 furnace container factory_component"></section>
         <section class="col-4 iron_ingot_container container factory_component"></section>
     </div>
-    <div class="row">
-        <section class=" container col-12 inventory factory_component d-flex flex-wrap">Inventory</section>
-    </div>
-    <div class="row">
-        <section class="container col-6 factory_component" id="build_option">
+    <div class ='row'>
+        <section class = "col-4 factory_component container copper_furnace d-flex flex-wrap">
             <form>
-                <label for ="build_smelter">Place 6 iron plates in the build box to build a copper furnace from your inventory.</label>
+                <label for ="copper_btn">Click the button to mine copper for the furnace.</label>
                 <br>
-                <button type="button" id="build_smelter">Build</button>
+                <button type="button" id="copper_btn" >Mine</button>
             </form>
         </section>
-        <section class="container col-6 factory_component d-flex flex-wrap" id="build_inventory">Build Box</section>
+        <section class="furnace_panel col-4 factory_component">
+            <label for ="furnace">Click the button to turn on the furnace.</label>
+            <br>
+            <button type="button" id="furnace_2" >Turn On Furnace</button>
+        </section>
+        <section class="col-4 factory_component smelter_product d-flex flex-wrap"></section>
     </div>
+    <div class="row">
+        <section class="col-4 copper_ore_container container factory_component"></section>
+        <section class="col-4 copper_furnace container factory_component"></section>
+        <section class="col-4 copper_ingot_container container factory_component"></section>
+    </div>
+
 </main>
 
 <script src="js/jquery-2.2.4.js"></script>

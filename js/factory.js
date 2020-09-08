@@ -31,6 +31,17 @@ $(document).ready(function () {
                updateListenerBI();
            })
     }
+    function clearBuild (){
+      $('#build_inventory .iron_plate_build').each(function(){
+          $(this).remove();
+          $('.inventory').append(itemDisplay('iron_plate_inventory'))
+          updateListenerBI();
+      })
+    }
+
+    $('#clear_build').on('click',function(){
+        clearBuild();
+    })
     $('#furnace').click(function () {
         let interval = 1000;
         let burnCoal = setInterval(function () {
