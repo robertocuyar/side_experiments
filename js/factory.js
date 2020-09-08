@@ -18,6 +18,13 @@ $(document).ready(function () {
             }
         })
     }
+    function consumeItem(mineral, number) {
+        $(mineral).each(function (index) {
+            if (index < number) {
+                $(this).remove();
+            }
+        })
+    }
     function updateListenerBI() {
         $('.iron_plate_inventory').off().on('click', function(){
             burnOff('.iron_plate_inventory')
@@ -54,6 +61,17 @@ $(document).ready(function () {
                 updateListenerIF();
             }
         }, interval);
+
+    })
+    $('#build_smelter1').click(function(){
+        if($('#build_inventory .iron_plate_build').length >= 6) {
+            $('#copper_setup').removeClass('d-none');
+            consumeItem('.iron_plate_build', 6);
+            updateListenerBI();
+            $('#cf_build_text').addClass('d-none')
+        } else{
+            $('#error_message_cf').html('Incorrect number of resources.')
+        }
 
     })
 })
