@@ -14,3 +14,7 @@ body {
     background-color: var(--bold-main-color);
 
 }
+#title{
+    font-size: 100%;
+    font-size: 200%;
+}

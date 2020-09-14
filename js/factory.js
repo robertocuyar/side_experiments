@@ -14,9 +14,9 @@
             $('.iron_furnace').append(itemDisplay('iron'));
         });
 
-        function burnOff(mineral) {
+        function burnOff(mineral, item) {
             $(mineral).each(function (index) {
-                if (index === 0) {
+               if (index === 0){
                     $(this).remove();
                 }
             })
@@ -31,20 +31,40 @@
         }
 
         function updateListenerBI() {
-            $('.iron_plate_inventory').off().on('click', function () {
-                burnOff('.iron_plate_inventory')
-                $('#build_inventory').append(itemDisplay('iron_plate_build'))
+            $('.iron_plate_inventory').each(function (number) {
+                $(this).draggable({revert: true});
+                $(this).on('dblclick', function () {
+                    burnOff('.iron_plate_inventory')
+                    $('#build_inventory').append(itemDisplay('iron_plate_build'))
+                })
+            })
+            $('#build_inventory').droppable({
+                accept: ".iron_plate_inventory",
+                drop: function (event, ui) {
+                   ui.draggable.remove();
+                    $(this).append(itemDisplay('iron_plate_build'))
+                }
             })
         }
 
         function updateListenerIF() {
-            $('.iron_plate_furnace').off().on('click', function () {
-                burnOff('.iron_plate_furnace')
-                $('.inventory').append(itemDisplay('iron_plate_inventory'))
-                updateListenerBI();
+            $('.iron_plate_furnace').each(function(number){
+                $(this).draggable({revert: true});
+                $(this).on('dblclick', function () {
+                    burnOff('.iron_plate_furnace')
+                    $('.inventory').append(itemDisplay('iron_plate_inventory'))
+                    updateListenerBI();
+                })
+                    $('.inventory').droppable({
+                        accept: ".iron_plate_furnace",
+                        drop: function(event, ui){
+                           ui.draggable.remove()
+                            $(this).append(itemDisplay('iron_plate_inventory'))
+                            updateListenerBI();
+                        }
+                    })
             })
         }
-
         function clearBuild() {
             $('#build_inventory .iron_plate_build').each(function () {
                 $(this).remove();
@@ -52,7 +72,6 @@
                 updateListenerBI();
             })
         }
-
         $('#clear_build').on('click', function () {
             clearBuild();
         })
@@ -79,7 +98,6 @@
             } else {
                 $('#error_message_cf').html('Can\'t build. Incorrect number of resources.');
             }
-
         })
     })
 })(jQuery);
