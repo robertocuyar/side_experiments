@@ -1,28 +1,29 @@
-
-(function($) {
+(function ($) {
     "use strict"
     $(document).ready(function () {
 
         function itemDisplay(type) {
             return "<a class ='" + type + "'><div class='item'></div></a>"
         }
+
         //TODO: refactor for render Item in other functions
-function renderItem (container, ore){
-          return  $(container).append(itemDisplay(ore));
+        function renderItem(container, ore) {
+            return $(container).append(itemDisplay(ore));
         }
+
         $('#coal').click(function () {
-        renderItem('.coal_container', 'coal')
+            renderItem('.coal_container', 'coal')
         })
         $('#iron_btn').click(function () {
             renderItem('.iron_furnace', 'iron')
         });
-        $('#copper_btn').click(function(){
+        $('#copper_btn').click(function () {
             renderItem('.copper_furnace', 'copper')
         })
 
         function burnOff(mineral, item) {
             $(mineral).each(function (index) {
-               if (index === 0){
+                if (index === 0) {
                     $(this).remove();
                 }
             })
@@ -37,40 +38,38 @@ function renderItem (container, ore){
         }
 
         function updateListenerBI() {
-            $('.iron_plate_inventory').each(function (number) {
-                $(this).draggable({revert: true});
-                $(this).on('dblclick', function () {
+            $('.iron_plate_inventory').draggable({revert: true})
+                .on('dblclick', function () {
                     burnOff('.iron_plate_inventory')
                     $('#build_inventory').append(itemDisplay('iron_plate_build'))
                 })
-            })
             $('#build_inventory').droppable({
                 accept: ".iron_plate_inventory",
                 drop: function (event, ui) {
-                   ui.draggable.remove();
+                    ui.draggable.remove();
                     $(this).append(itemDisplay('iron_plate_build'))
                 }
             })
         }
 
         function updateListenerIF() {
-            $('.iron_plate_furnace').each(function(number){
-                $(this).draggable({revert: true});
-                $(this).on('dblclick', function () {
+            $('.iron_plate_furnace').draggable({revert: true})
+                .on('dblclick', function () {
                     burnOff('.iron_plate_furnace')
                     $('.inventory').append(itemDisplay('iron_plate_inventory'))
                     updateListenerBI();
                 })
-                    $('.inventory').droppable({
-                        accept: ".iron_plate_furnace",
-                        drop: function(event, ui){
-                           ui.draggable.remove()
-                            $(this).append(itemDisplay('iron_plate_inventory'))
-                            updateListenerBI();
-                        }
-                    })
+            $('.inventory').droppable({
+                accept: ".iron_plate_furnace",
+                drop: function (event, ui) {
+                    ui.draggable.remove()
+                    $(this).append(itemDisplay('iron_plate_inventory'))
+                    updateListenerBI();
+                }
             })
+
         }
+
         function clearBuild() {
             $('#build_inventory .iron_plate_build').each(function () {
                 $(this).remove();
@@ -78,6 +77,7 @@ function renderItem (container, ore){
                 updateListenerBI();
             })
         }
+
         $('#clear_build').on('click', function () {
             clearBuild();
         })
