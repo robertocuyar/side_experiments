@@ -6,13 +6,19 @@
         function itemDisplay(type) {
             return "<a class ='" + type + "'><div class='item'></div></a>"
         }
-
+        //TODO: refactor for render Item in other functions
+function renderItem (container, ore){
+          return  $(container).append(itemDisplay(ore));
+        }
         $('#coal').click(function () {
-            $('.coal_container').append(itemDisplay('coal'));
-        });
+        renderItem('.coal_container', 'coal')
+        })
         $('#iron_btn').click(function () {
-            $('.iron_furnace').append(itemDisplay('iron'));
+            renderItem('.iron_furnace', 'iron')
         });
+        $('#copper_btn').click(function(){
+            renderItem('.copper_furnace', 'copper')
+        })
 
         function burnOff(mineral, item) {
             $(mineral).each(function (index) {
@@ -87,7 +93,6 @@
                     updateListenerIF();
                 }
             }, interval);
-
         })
         $('#build_smelter1').click(function () {
             if ($('#build_inventory .iron_plate_build').length >= 6) {
@@ -98,6 +103,19 @@
             } else {
                 $('#error_message_cf').html('Can\'t build. Incorrect number of resources.');
             }
+        })
+        $('#furnace_2').click(function () {
+            let interval = 1000;
+            let burnCoal = setInterval(function () {
+                if ($('.coal_container').has('a').length === 0 || $('.copper_furnace').has('.copper').length === 0) {
+                    clearInterval(burnCoal);
+                } else {
+                    burnOff('.coal')
+                    burnOff('.copper')
+                    $('.smelter_product_copper').append(itemDisplay('copper_plate_furnace'))
+                    updateListenerIF();
+                }
+            }, interval);
         })
     })
 })(jQuery);

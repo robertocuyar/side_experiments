@@ -20,8 +20,18 @@ a {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.copper div {
+    background-image: url("../img/copperore3.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .iron_plate_furnace div, .iron_plate_inventory div, .iron_plate_build div {
     background-image: url("../img/ironplate.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.copper_plate_furnace div, .copper_plate_inventory div, .copper_plate_build div{
+    background-image: url("../img/copper_plate2.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
