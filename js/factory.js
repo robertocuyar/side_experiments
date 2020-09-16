@@ -37,34 +37,34 @@
             })
         }
 
-        function updateListenerBI() {
-            $('.iron_plate_inventory').draggable({revert: true})
+        function updateListenerBI(inventory, build) {
+            $(inventory).draggable({revert: true})
                 .on('dblclick', function () {
-                    burnOff('.iron_plate_inventory')
-                    $('#build_inventory').append(itemDisplay('iron_plate_build'))
+                    burnOff(inventory)
+                    $('#build_inventory').append(itemDisplay(build))
                 })
             $('#build_inventory').droppable({
-                accept: ".iron_plate_inventory",
+                accept: inventory,
                 drop: function (event, ui) {
                     ui.draggable.remove();
-                    $(this).append(itemDisplay('iron_plate_build'))
+                    $(this).append(itemDisplay(build))
                 }
             })
         }
 
-        function updateListenerIF() {
-            $('.iron_plate_furnace').draggable({revert: true})
+        function updateListenerIF(itemFurnace, itemNCInven, itemInventory, itemNCBuild) {
+            $(itemFurnace).draggable({revert: true})
                 .on('dblclick', function () {
-                    burnOff('.iron_plate_furnace')
-                    $('.inventory').append(itemDisplay('iron_plate_inventory'))
-                    updateListenerBI();
+                    burnOff(itemFurnace)
+                    $('.inventory').append(itemDisplay(itemNCInven))
+                    updateListenerBI(itemInventory, itemNCBuild);
                 })
             $('.inventory').droppable({
-                accept: ".iron_plate_furnace",
+                accept: itemFurnace,
                 drop: function (event, ui) {
                     ui.draggable.remove()
-                    $(this).append(itemDisplay('iron_plate_inventory'))
-                    updateListenerBI();
+                    $(this).append(itemDisplay(itemNCInven))
+                    updateListenerBI(itemInventory, itemNCBuild);
                 }
             })
 
@@ -74,7 +74,7 @@
             $('#build_inventory .iron_plate_build').each(function () {
                 $(this).remove();
                 $('.inventory').append(itemDisplay('iron_plate_inventory'))
-                updateListenerBI();
+                updateListenerBI('.iron_plate_inventory', 'iron_plate_build');
             })
         }
 
@@ -90,7 +90,7 @@
                     burnOff('.coal')
                     burnOff('.iron')
                     $('.smelter_product').append(itemDisplay('iron_plate_furnace'))
-                    updateListenerIF();
+                    updateListenerIF('.iron_plate_furnace','iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
                 }
             }, interval);
         })
