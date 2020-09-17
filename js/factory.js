@@ -1,35 +1,21 @@
 (function ($) {
     "use strict"
     $(document).ready(function () {
+    //TODO: refactor for render Item in other functions
+        //TODO: make build inventory draggable
+        let itemDisplay = type => `<a class ='${type}'><div class='item'></div></a>`;
 
-        function itemDisplay(type) {
-            return "<a class ='" + type + "'><div class='item'></div></a>"
-        }
+        let renderItem = (container, ore) => $(container).append(itemDisplay(ore));
 
-        //TODO: refactor for render Item in other functions
-        function renderItem(container, ore) {
-            return $(container).append(itemDisplay(ore));
-        }
+        $('#coal').click(() => renderItem('.coal_container', 'coal'));
 
-        $('#coal').click(function () {
-            renderItem('.coal_container', 'coal')
-        })
-        $('#iron_btn').click(function () {
-            renderItem('.iron_furnace', 'iron')
-        });
-        $('#copper_btn').click(function () {
-            renderItem('.copper_furnace', 'copper')
-        })
+        $('#iron_btn').click(() => renderItem('.iron_furnace', 'iron'));
 
-        function burnOff(mineral, item) {
-            $(mineral).each(function (index) {
-                if (index === 0) {
-                    $(this).remove();
-                }
-            })
-        }
+        $('#copper_btn').click(() => renderItem('.copper_furnace', 'copper'));
 
-        function consumeItem(mineral, number) {
+        let burnOff = (mineral) => $(mineral).first().remove();
+
+        let consumeItem = (mineral, number) => {
             $(mineral).each(function (index) {
                 if (index < number) {
                     $(this).remove();
@@ -37,11 +23,11 @@
             })
         }
 
-        function updateListenerBI(inventory, build) {
+        let updateListenerBI = (inventory, build) => {
             $(inventory).draggable({revert: true})
                 .on('dblclick', function () {
                     burnOff(inventory)
-                    $('#build_inventory').append(itemDisplay(build))
+                    renderItem('#build_inventory',build)
                 })
             $('#build_inventory').droppable({
                 accept: inventory,
@@ -52,11 +38,11 @@
             })
         }
 
-        function updateListenerIF(itemFurnace, itemNCInven, itemInventory, itemNCBuild) {
+        let updateListenerIF = (itemFurnace, itemNCInven, itemInventory, itemNCBuild) => {
             $(itemFurnace).draggable({revert: true})
                 .on('dblclick', function () {
                     burnOff(itemFurnace)
-                    $('.inventory').append(itemDisplay(itemNCInven))
+                    renderItem('.inventory', itemNCInven)
                     updateListenerBI(itemInventory, itemNCBuild);
                 })
             $('.inventory').droppable({
@@ -70,16 +56,18 @@
 
         }
 
-        function clearBuild() {
-            $('#build_inventory .iron_plate_build').each(function () {
+        function clearBuild(buildInventory, inventoryNCItem, inventoryItem, buildNCItem) {
+            $(`#build_inventory ${buildInventory}`).each(function () {
                 $(this).remove();
-                $('.inventory').append(itemDisplay('iron_plate_inventory'))
-                updateListenerBI('.iron_plate_inventory', 'iron_plate_build');
+                $('.inventory').append(itemDisplay(inventoryNCItem))
+                updateListenerBI(inventoryItem, buildNCItem);
             })
         }
 
         $('#clear_build').on('click', function () {
-            clearBuild();
+            clearBuild('.copper_plate_build', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build')
+            clearBuild('.iron_plate_build', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
+
         })
         $('#furnace').click(function () {
             let interval = 1000;
@@ -90,7 +78,7 @@
                     burnOff('.coal')
                     burnOff('.iron')
                     $('.smelter_product').append(itemDisplay('iron_plate_furnace'))
-                    updateListenerIF('.iron_plate_furnace','iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
+                    updateListenerIF('.iron_plate_furnace', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
                 }
             }, interval);
         })
