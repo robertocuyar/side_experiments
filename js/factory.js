@@ -98,7 +98,7 @@
             if ($('#build_inventory .iron_plate_build').length >= 6) {
                 $('#copper_setup').removeClass('d-none');
                 consumeItem('.iron_plate_build', 6);
-                updateListenerBI();
+                updateListenerBI('.iron_plate_inventory', 'iron_plate_build');
                 $('#cf_build_text').addClass('d-none')
             } else {
                 $('#error_message_cf').html('Can\'t build. Incorrect number of resources.');
@@ -113,7 +113,7 @@
                     burnOff('.coal')
                     burnOff('.copper')
                     $('.smelter_product_copper').append(itemDisplay('copper_plate_furnace'))
-                    updateListenerIF();
+                    updateListenerIF('.copper_plate_furnace', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build');
                 }
             }, interval);
         })
