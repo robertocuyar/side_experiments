@@ -40,9 +40,8 @@ let confirmBlue = ()=> {
     }
 
 }
+const backChange = () => document.getElementById('test_1').style.backgroundColor = ('#' + confirmRed() + confirmGreen() + confirmBlue());
 
-let backgroundTest1 = document.getElementById('test_1');
-backgroundTest1.style.backgroundColor = ('#' + confirmRed() + confirmGreen() + confirmBlue());
 
 let displayArray = [];
 function defaultDisplay() {
