@@ -46,14 +46,20 @@
                     updateListenerBI(itemInventory, itemNCBuild);
                 })
             $('.inventory').droppable({
-                accept: itemFurnace,
+                accept: ".iron_plate_furnace, .copper_plate_furnace",
                 drop: function (event, ui) {
-                    ui.draggable.remove()
-                    $(this).append(itemDisplay(itemNCInven))
-                    updateListenerBI(itemInventory, itemNCBuild);
+                    if(ui.draggable.hasClass("iron_plate_furnace")) {
+                        ui.draggable.remove()
+                        $(this).append(itemDisplay("iron_plate_inventory"))
+                        updateListenerBI(itemInventory, itemNCBuild);
+                    }
+                    if(ui.draggable.hasClass("copper_plate_furnace")) {
+                        ui.draggable.remove()
+                        $(this).append(itemDisplay("copper_plate_inventory"))
+                        updateListenerBI(itemInventory, itemNCBuild);
+                    }
                 }
             })
-
         }
 
         function clearBuild(buildInventory, inventoryNCItem, inventoryItem, buildNCItem) {

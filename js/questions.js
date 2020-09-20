@@ -2,7 +2,7 @@
 let positive = '<a href="#" onclick = "storeData()">You like ';
 let negative = '<a href="#" onclick = "storeData()">You don\'t like ';
 
-let confirmGreen = function() {
+let confirmGreen = () => {
     let response2 = confirm("Do you like Green?");
     if (response2) {
         document.getElementById("green").innerHTML = positive + 'green.</a>';
@@ -14,7 +14,7 @@ let confirmGreen = function() {
     }
 }
 
-let confirmRed = function() {
+let confirmRed = ()=> {
     let response2 = confirm("Do you like Red?");
     if (response2) {
         document.getElementById("red").innerHTML = positive + 'red.</a>';
@@ -27,7 +27,7 @@ let confirmRed = function() {
 
 }
 
-let confirmBlue = function(){
+let confirmBlue = ()=> {
     let response = confirm("Do you like Blue?");
     if(response) {
         document.getElementById("blue").innerHTML = positive + 'blue.</a>';
@@ -41,10 +41,8 @@ let confirmBlue = function(){
 
 }
 
-var backgroundTest1 = document.getElementById('test_1');
+let backgroundTest1 = document.getElementById('test_1');
 backgroundTest1.style.backgroundColor = ('#' + confirmRed() + confirmGreen() + confirmBlue());
-
-
 
 let displayArray = [];
 function defaultDisplay() {
@@ -75,9 +73,7 @@ let storeData = function() {
         let divResponse = document.createElement('div');
         divResponse.innerHTML = "<p id = '" + i + "'>" + dataShow + "       <a href = '#'" + " onclick ='erasePart(" + i + ")'>Remove</a></p>";
         document.getElementById("display_data").appendChild(divResponse)
-
         //document.getElementById('display_data').innerHTML = dataShow;
-
     }
 }
 let clearLocal = function() {
@@ -86,8 +82,6 @@ let clearLocal = function() {
     document.getElementById('display_data').innerHTML = "";
 
 }
-
-
 
 let erasePart = function(input){
 
