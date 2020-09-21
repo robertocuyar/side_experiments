@@ -12,12 +12,13 @@ body {
 }
 .nav_side {
     background-color: var(--bold-main-color);
+    height: 80vh;
 
 }
 #title{
     font-size: 100%;
 }
-a {
+.side_text{
     color: white !important;
     text-decoration: none !important;
 }
