@@ -16,5 +16,8 @@ body {
 }
 #title{
     font-size: 100%;
-    font-size: 200%;
+}
+a {
+    color: white !important;
+    text-decoration: none !important;
 }
