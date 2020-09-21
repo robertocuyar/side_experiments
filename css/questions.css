@@ -22,3 +22,6 @@ body {
     color: white !important;
     text-decoration: none !important;
 }
+main {
+    width: 70% !important;
+}
