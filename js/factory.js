@@ -3,6 +3,7 @@
     $(document).ready(function () {
     //TODO: refactor for render Item in other functions
         //TODO: make build inventory draggable
+        //TODO drag last item into the build menu then double click the first adds a new item to the build inventory
         let itemDisplay = type => `<a class ='${type}'><div class='item'></div></a>`;
 
         let renderItem = (container, ore) => $(container).append(itemDisplay(ore));
@@ -30,10 +31,16 @@
                     renderItem('#build_inventory',build)
                 })
             $('#build_inventory').droppable({
-                accept: inventory,
+                accept: ".iron_plate_inventory, .copper_plate_inventory",
                 drop: function (event, ui) {
-                    ui.draggable.remove();
-                    $(this).append(itemDisplay(build))
+                    if(ui.draggable.hasClass("iron_plate_inventory")){
+                        ui.draggable.remove()
+                        $(this).append(itemDisplay("iron_plate_build"))
+                    }
+                    if(ui.draggable.hasClass("copper_plate_inventory")){
+                        ui.draggable.remove();
+                        $(this).append(itemDisplay("copper_plate_build"))
+                    }
                 }
             })
         }
