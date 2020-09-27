@@ -14,7 +14,7 @@
 
         $('#copper_btn').click(() => renderItem('.copper_furnace', 'copper'));
 
-        let burnOff = (mineral) => $(mineral).first().remove();
+        const burnOff = (mineral) => $(mineral).first().remove();
 
         let consumeItem = (mineral, number) => {
             $(mineral).each(function (index) {
@@ -92,6 +92,8 @@
                     burnOff('.iron')
                     $('.smelter_product').append(itemDisplay('iron_plate_furnace'))
                     updateListenerIF('.iron_plate_furnace', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
+                    updateListenerIF('.copper_plate_furnace', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build');
+
                 }
             }, interval);
         })
@@ -114,6 +116,7 @@
                     burnOff('.coal')
                     burnOff('.copper')
                     $('.smelter_product_copper').append(itemDisplay('copper_plate_furnace'))
+                    updateListenerIF('.iron_plate_furnace', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
                     updateListenerIF('.copper_plate_furnace', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build');
                 }
             }, interval);
