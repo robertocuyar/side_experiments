@@ -1,7 +1,7 @@
 (function ($) {
     "use strict"
     $(document).ready(function () {
-    //TODO: refactor for render Item in other functions
+        //TODO: refactor for render Item in other functions
         //TODO: make build inventory draggable
         //TODO drag last item into the build menu then double click the first adds a new item to the build inventory
         let itemDisplay = type => `<a class ='${type}'><div class='item'></div></a>`;
@@ -14,7 +14,8 @@
 
         $('#copper_btn').click(() => renderItem('.copper_furnace', 'copper'));
 
-        const burnOff = (mineral) => $(mineral).first().remove();
+        const burnOff = mineral => $(mineral).first().remove();
+
 
         let consumeItem = (mineral, number) => {
             $(mineral).each(function (index) {
@@ -28,46 +29,55 @@
             $(inventory).draggable({revert: true})
                 .on('dblclick', function () {
                     burnOff(inventory)
-                    renderItem('#build_inventory',build)
+                    renderItem('#build_inventory', build)
                 })
             $('#build_inventory').droppable({
                 accept: ".iron_plate_inventory, .copper_plate_inventory",
                 drop: function (event, ui) {
-                    if(ui.draggable.hasClass("iron_plate_inventory")){
+                    if (ui.draggable.hasClass("iron_plate_inventory")) {
                         ui.draggable.remove()
                         $(this).append(itemDisplay("iron_plate_build"))
                     }
-                    if(ui.draggable.hasClass("copper_plate_inventory")){
+                    if (ui.draggable.hasClass("copper_plate_inventory")) {
                         ui.draggable.remove();
                         $(this).append(itemDisplay("copper_plate_build"))
                     }
                 }
             })
         }
+        $(document).on('click', ".iron_plate_furnace", function () {
+            burnOff(this)
+            renderItem('.inventory', 'iron_plate_inventory');
+        })
+        $(document).on('click', ".iron_plate_inventory", function () {
+            burnOff(this)
+            renderItem('#build_inventory', 'iron_plate_build');
+        })
+        $(document).on('click', ".copper_plate_furnace", function () {
+            burnOff(this)
+            renderItem('.inventory', 'copper_plate_inventory');
+        })
+        $(document).on('click', ".copper_plate_inventory", function () {
+            burnOff(this)
+            renderItem('#build_inventory', 'copper_plate_build');
+        })
 
-        let updateListenerIF = (itemFurnace, itemNCInven, itemInventory, itemNCBuild) => {
-            $(itemFurnace).draggable({revert: true})
-                .on('dblclick', function () {
-                    burnOff(itemFurnace)
-                    renderItem('.inventory', itemNCInven)
-                    updateListenerBI(itemInventory, itemNCBuild);
-                })
-            $('.inventory').droppable({
-                accept: ".iron_plate_furnace, .copper_plate_furnace",
-                drop: function (event, ui) {
-                    if(ui.draggable.hasClass("iron_plate_furnace")) {
-                        ui.draggable.remove()
-                        $(this).append(itemDisplay("iron_plate_inventory"))
-                        updateListenerBI(itemInventory, itemNCBuild);
-                    }
-                    if(ui.draggable.hasClass("copper_plate_furnace")) {
-                        ui.draggable.remove()
-                        $(this).append(itemDisplay("copper_plate_inventory"))
-                        updateListenerBI(itemInventory, itemNCBuild);
-                    }
+
+        $(".iron_plate_furnace, .copper_plate_furnace").draggable({revert: true})
+        $('.inventory').droppable({
+            accept: ".iron_plate_furnace, .copper_plate_furnace",
+            drop: function (event, ui) {
+                if (ui.draggable.hasClass("iron_plate_furnace")) {
+                    ui.draggable.remove()
+                    $(this).append(itemDisplay("iron_plate_inventory"))
                 }
-            })
-        }
+                if (ui.draggable.hasClass("copper_plate_furnace")) {
+                    ui.draggable.remove()
+                    $(this).append(itemDisplay("copper_plate_inventory"))
+                }
+            }
+        })
+
 
         function clearBuild(buildInventory, inventoryNCItem, inventoryItem, buildNCItem) {
             $(`#build_inventory ${buildInventory}`).each(function () {
@@ -91,8 +101,8 @@
                     burnOff('.coal')
                     burnOff('.iron')
                     $('.smelter_product').append(itemDisplay('iron_plate_furnace'))
-                    updateListenerIF('.iron_plate_furnace', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
-                    updateListenerIF('.copper_plate_furnace', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build');
+                    //updateListenerIF('.iron_plate_furnace', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
+                    //updateListenerIF('.copper_plate_furnace', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build');
 
                 }
             }, interval);
