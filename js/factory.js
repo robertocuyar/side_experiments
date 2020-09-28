@@ -16,7 +16,6 @@
 
         const burnOff = mineral => $(mineral).first().remove();
 
-
         let consumeItem = (mineral, number) => {
             $(mineral).each(function (index) {
                 if (index < number) {
@@ -25,12 +24,8 @@
             })
         }
 
-        let updateListenerBI = (inventory, build) => {
-            $(inventory).draggable({revert: true})
-                .on('dblclick', function () {
-                    burnOff(inventory)
-                    renderItem('#build_inventory', build)
-                })
+        const updateListenerBI = () => {
+            $(".iron_plate_inventory, .copper_plate_inventory").draggable({revert: true})
             $('#build_inventory').droppable({
                 accept: ".iron_plate_inventory, .copper_plate_inventory",
                 drop: function (event, ui) {
@@ -48,70 +43,74 @@
         $(document).on('click', ".iron_plate_furnace", function () {
             burnOff(this)
             renderItem('.inventory', 'iron_plate_inventory');
+            updateListenerBI()
         })
         $(document).on('click', ".iron_plate_inventory", function () {
             burnOff(this)
             renderItem('#build_inventory', 'iron_plate_build');
+            updateListenerBI()
         })
         $(document).on('click', ".copper_plate_furnace", function () {
             burnOff(this)
             renderItem('.inventory', 'copper_plate_inventory');
+            updateListenerBI()
         })
         $(document).on('click', ".copper_plate_inventory", function () {
             burnOff(this)
             renderItem('#build_inventory', 'copper_plate_build');
+            updateListenerBI()
         })
+        const updateListenerDI = () => {
+            $(".iron_plate_furnace, .copper_plate_furnace").draggable({revert: true})
+            $('.inventory').droppable({
+                accept: ".iron_plate_furnace, .copper_plate_furnace",
+                drop: function (event, ui) {
+                    if (ui.draggable.hasClass("iron_plate_furnace")) {
+                        ui.draggable.remove()
+                        $(this).append(itemDisplay("iron_plate_inventory"))
+                        updateListenerBI();
+                    }
+                    if (ui.draggable.hasClass("copper_plate_furnace")) {
+                        ui.draggable.remove()
+                        $(this).append(itemDisplay("copper_plate_inventory"))
+                        updateListenerBI();
+                    }
 
-
-        $(".iron_plate_furnace, .copper_plate_furnace").draggable({revert: true})
-        $('.inventory').droppable({
-            accept: ".iron_plate_furnace, .copper_plate_furnace",
-            drop: function (event, ui) {
-                if (ui.draggable.hasClass("iron_plate_furnace")) {
-                    ui.draggable.remove()
-                    $(this).append(itemDisplay("iron_plate_inventory"))
                 }
-                if (ui.draggable.hasClass("copper_plate_furnace")) {
-                    ui.draggable.remove()
-                    $(this).append(itemDisplay("copper_plate_inventory"))
-                }
-            }
-        })
+            })
 
+        }
 
         function clearBuild(buildInventory, inventoryNCItem, inventoryItem, buildNCItem) {
-            $(`#build_inventory ${buildInventory}`).each(function () {
+            $(`#build_inventory ${buildInventory}`).each( () => {
                 $(this).remove();
                 $('.inventory').append(itemDisplay(inventoryNCItem))
-                updateListenerBI(inventoryItem, buildNCItem);
+                updateListenerBI();
             })
         }
 
-        $('#clear_build').on('click', function () {
+        $('#clear_build').on('click',() => {
             clearBuild('.copper_plate_build', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build')
             clearBuild('.iron_plate_build', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
 
         })
-        $('#furnace').click(function () {
+        $('#furnace').click( () => {
             let interval = 1000;
             let burnCoal = setInterval(function () {
                 if ($('.coal_container').has('a').length === 0 || $('.iron_furnace').has('.iron').length === 0) {
                     clearInterval(burnCoal);
                 } else {
-                    burnOff('.coal')
-                    burnOff('.iron')
-                    $('.smelter_product').append(itemDisplay('iron_plate_furnace'))
-                    //updateListenerIF('.iron_plate_furnace', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
-                    //updateListenerIF('.copper_plate_furnace', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build');
-
+                    burnOff('.coal');
+                    burnOff('.iron');
+                    $('.smelter_product').append(itemDisplay('iron_plate_furnace'));
+                    updateListenerDI();
                 }
             }, interval);
         })
-        $('#build_smelter1').click(function () {
+        $('#build_smelter1').click( () => {
             if ($('#build_inventory .iron_plate_build').length >= 6) {
                 $('#copper_setup').removeClass('d-none');
                 consumeItem('.iron_plate_build', 6);
-                updateListenerBI('.iron_plate_inventory', 'iron_plate_build');
                 $('#cf_build_text').addClass('d-none')
             } else {
                 $('#error_message_cf').html('Can\'t build. Incorrect number of resources.');
@@ -126,8 +125,7 @@
                     burnOff('.coal')
                     burnOff('.copper')
                     $('.smelter_product_copper').append(itemDisplay('copper_plate_furnace'))
-                    updateListenerIF('.iron_plate_furnace', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
-                    updateListenerIF('.copper_plate_furnace', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build');
+                    updateListenerDI();
                 }
             }, interval);
         })
