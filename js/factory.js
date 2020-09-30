@@ -4,15 +4,21 @@
         //TODO: refactor for render Item in other functions
         //TODO: make build inventory draggable
         //TODO drag last item into the build menu then double click the first adds a new item to the build inventory
-        let itemDisplay = type => `<a class ='${type}'><div class='item'></div></a>`;
+        //TODO electricity dynamic upgradeable for furnaces
+        //TODO Random job list
+        //TODO Capacity limits to the containers
+        //TODO Worker upgrade for AUTOMATION
+        const itemDisplay = type => `<a class ='${type}'><div class='item'></div></a>`;
 
-        let renderItem = (container, ore) => $(container).append(itemDisplay(ore));
+        const renderItem = (container, ore) => $(container).append(itemDisplay(ore));
 
         $('#coal').click(() => renderItem('.coal_container', 'coal'));
 
         $('#iron_btn').click(() => renderItem('.iron_furnace', 'iron'));
 
         $('#copper_btn').click(() => renderItem('.copper_furnace', 'copper'));
+
+        $('#concrete_btn').click(() => renderItem('.concrete_furnace', 'limestone'));
 
         const burnOff = mineral => $(mineral).first().remove();
 
@@ -81,17 +87,17 @@
 
         }
 
-        function clearBuild(buildInventory, inventoryNCItem, inventoryItem, buildNCItem) {
+        const clearBuild= (buildInventory, inventoryNCItem) => {
             $(`#build_inventory ${buildInventory}`).each( () => {
-                $(this).remove();
+                $(buildInventory).remove();
                 $('.inventory').append(itemDisplay(inventoryNCItem))
                 updateListenerBI();
             })
         }
 
         $('#clear_build').on('click',() => {
-            clearBuild('.copper_plate_build', 'copper_plate_inventory', '.copper_plate_inventory', 'copper_plate_build')
-            clearBuild('.iron_plate_build', 'iron_plate_inventory', '.iron_plate_inventory', 'iron_plate_build');
+            clearBuild('.copper_plate_build', 'copper_plate_inventory');
+            clearBuild('.iron_plate_build', 'iron_plate_inventory');
 
         })
         $('#furnace').click( () => {
@@ -107,15 +113,7 @@
                 }
             }, interval);
         })
-        $('#build_smelter1').click( () => {
-            if ($('#build_inventory .iron_plate_build').length >= 6) {
-                $('#copper_setup').removeClass('d-none');
-                consumeItem('.iron_plate_build', 6);
-                $('#cf_build_text').addClass('d-none')
-            } else {
-                $('#error_message_cf').html('Can\'t build. Incorrect number of resources.');
-            }
-        })
+
         $('#furnace_2').click(function () {
             let interval = 1000;
             let burnCoal = setInterval(function () {
@@ -128,6 +126,25 @@
                     updateListenerDI();
                 }
             }, interval);
+        })
+        $('#build_smelter1').click( () => {
+            if ($('#build_inventory .iron_plate_build').length >= 6) {
+                $('#copper_setup').removeClass('d-none');
+                consumeItem('.iron_plate_build', 6);
+                $('#cf_build_text').addClass('d-none')
+            } else {
+                $('#error_message_cf').html('Can\'t build. Incorrect number of resources.');
+            }
+        })
+        $('#build_smelter2').click( () => {
+            if ($('#build_inventory .iron_plate_build').length >= 6 && $('#build_inventory .copper_plate_build').length >= 5 ) {
+                $('#concrete_setup').removeClass('d-none');
+                consumeItem('.iron_plate_build', 6);
+                consumeItem('.copper_plate_build', 5);
+                $('#co_build_text').addClass('d-none')
+            } else {
+                $('#error_message_co').html('Can\'t build. Incorrect number of resources.');
+            }
         })
     })
 })(jQuery);

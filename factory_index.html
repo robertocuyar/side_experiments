@@ -14,25 +14,12 @@
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
         <img src="" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        Factory Game
+        HTML inc.
     </a>
 </nav>
-<main class="">
-    <div class="row">
-        <section class=" container col-12 inventory factory_component d-flex flex-wrap"><p>Inventory</p></section>
-    </div>
-    <div class="row">
-        <section class="container col-6 factory_component" id="build_option">
-            <form id="cf_build_text">
-                <label for ="build_smelter1">Place 6 iron plates in the build box to build a copper furnace from your inventory.</label>
-                <br>
-                <button type="button" id="build_smelter1">Build</button>
-                <div id="error_message_cf"></div>
-            </form>
-
-            <a style="cursor:pointer" id="clear_build">Clear Build Inventory</a>
-        </section>
-        <section class="container col-6 factory_component d-flex flex-wrap" id="build_inventory"><p class="container">Build Box</p></section>
+<main class="mb-5">
+    <div class="row my-5">
+        <section class=" container col-12 inventory factory_component d-flex flex-wrap py-3"><p>Inventory</p></section>
     </div>
     <div class="row">
         <section class="col-4 coal_button factory_component container">
@@ -75,7 +62,42 @@
         </section>
         <section class="col-4 factory_component smelter_product_copper d-flex flex-wrap"></section>
     </div>
+    <div class ='row d-none' id="concrete_setup">
+        <section class = "col-4 factory_component container concrete_furnace d-flex flex-wrap">
+            <form>
+                <label for ="concrete_btn">Click the button to mine for limestone for the concrete processor.</label>
+                <br>
+                <button type="button" id="concrete_btn" >Mine</button>
+            </form>
+        </section>
+        <section class="furnace_panel col-4 factory_component">
+            <label for ="furnace">Click the button to turn on the concrete processor.</label>
+            <br>
+            <button type="button" id="furnace_3" >Turn On Concrete Processor</button>
+        </section>
+        <section class="col-4 factory_component smelter_product_concrete d-flex flex-wrap"></section>
+    </div>
 </main>
+<article>
+    <div class="row">
+        <section class="container col-6 factory_component" id="build_option">
+            <form id="cf_build_text">
+                <label for ="build_smelter1">Place 6 iron plates in the build box to build a copper furnace from your inventory.</label>
+                <br>
+                <button type="button" id="build_smelter1">Build</button>
+                <div id="error_message_cf"></div>
+            </form>
+            <form id="co_build_text">
+                <label for="build_smelter2">Place 6 iron plates and 5 copper plates in the build box to build a concrete processor from your inventory.</label>
+                <br>
+                <button type="button" id="build_smelter2">Build</button>
+                <div id="error_message_co"></div>
+            </form>
+            <a style="cursor:pointer" id="clear_build">Clear Build Inventory</a>
+        </section>
+        <section class="container col-6 factory_component d-flex flex-wrap" id="build_inventory"><p class="container">Build Box</p></section>
+    </div>
+</article>
 
 <script src="js/jquery-2.2.4.js"></script>
 <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
