@@ -5,13 +5,13 @@ import Col from 'react-bootstrap/Col';
 
 const SideBar = () => {
     return (
-        <Row>
+        <Row className={"my-2"}>
             <Col>
-            <SideBarItem sidePiece = "Navigation Bar" />
-                <SideBarItem sidePiece = "Jumbotron" />
-                <SideBarItem sidePiece = "Body Component" />
-                <SideBarItem sidePiece = "Card" />
-                <SideBarItem sidePiece = "Footer" />
+            <SideBarItem sidePiece = "Navigation Bar" idConnect= "navigation" />
+                <SideBarItem sidePiece = "Jumbotron" idConnect= "jumbo" />
+                <SideBarItem sidePiece = "Body Component" idConnect= "divider" />
+                <SideBarItem sidePiece = "Card" idConnect= "card-item"/>
+                <SideBarItem sidePiece = "Footer" idConnect= "footer"/>
                 <SideBarItem sidePiece = "Settings" />
             </Col>
         </Row>
