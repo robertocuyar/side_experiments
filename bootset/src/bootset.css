@@ -12,7 +12,7 @@ body {
 }
 .nav_side {
     background-color: var(--bold-main-color);
-    height: 80vh;
+    /*height: 80vh;*/
 
 }
 #title{
