@@ -2,7 +2,7 @@ import React from 'react';
 
 const ToolBarItem = () => {
 return (
-    <button>This is a button!</button>
+    <button>Hi!!!</button>
 )
 
 }
