@@ -8,7 +8,7 @@ onInputChange = e => {
 };
 onFormSubmit = e => {
     e.preventDefault();
-    //TODO: Make sure we call back from parent component
+    this.props.onFormSubmit(this.state.term);
 }
     render(){
         return (
