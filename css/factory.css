@@ -40,3 +40,8 @@ a {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.cement_furnace div, .cement_inventory div, .cement_build div{
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

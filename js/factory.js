@@ -114,7 +114,7 @@
             }, interval);
         })
 
-        $('#furnace_2').click(function () {
+        $('#furnace_2').click(() => {
             let interval = 1000;
             let burnCoal = setInterval(function () {
                 if ($('.coal_container').has('a').length === 0 || $('.copper_furnace').has('.copper').length === 0) {
@@ -123,6 +123,19 @@
                     burnOff('.coal')
                     burnOff('.copper')
                     $('.smelter_product_copper').append(itemDisplay('copper_plate_furnace'))
+                    updateListenerDI();
+                }
+            }, interval);
+        })
+        $('#furnace_3').click(()=> {
+            let interval = 1500;
+            let burnCoal = setInterval(() => {
+                if ($('.coal_container').has('a').length === 0 || $('.concrete_furnace').has('.limestone').length === 0) {
+                    clearInterval(burnCoal);
+                } else {
+                    burnOff('.coal')
+                    burnOff('.limestone')
+                    $('.smelter_product_concrete').append(itemDisplay('cement_furnace'))
                     updateListenerDI();
                 }
             }, interval);
