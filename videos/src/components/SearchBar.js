@@ -15,7 +15,7 @@ onFormSubmit = e => {
             <div className={"search-bar ui segment"}>
                 <form onSubmit={this.onFormSubmit} className={"ui form"}>
                     <div className={"field"}>
-                        <label>Video Search</label>
+                        <label>Search For A Video</label>
                         <input type="text" onChange={this.onInputChange} value={this.state.term}/>
                     </div>
                 </form>   
