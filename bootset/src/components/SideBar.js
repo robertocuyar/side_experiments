@@ -3,16 +3,42 @@ import SideBarItem from "./SideBarItem";
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 
+const sideItems = [
+    {
+        piece: "Navigation Bar",
+        connect: "navigation"
+    },
+    {
+        piece: "Jumbotron",
+        connect: "jumbo"
+    },
+    {
+        piece: "Body Component",
+        connect: "divider"
+    },
+    {
+        piece: "Card",
+        connect: "card-item"
+    },
+    {
+        piece: "Footer",
+        connect: "footer"
+    },
+    {
+        piece: "Settings",
+        connect: "settings"
+    }
+
+]
+
 const SideBar = () => {
+    const sideBarItemDisplay = sideItems.map(({piece, connect})=>{
+        return <SideBarItem sidePiece = {piece} idConnect={connect} />
+    })
     return (
         <Row className={"my-2"}>
             <Col>
-            <SideBarItem sidePiece = "Navigation Bar" idConnect= "navigation" />
-                <SideBarItem sidePiece = "Jumbotron" idConnect= "jumbo" />
-                <SideBarItem sidePiece = "Body Component" idConnect= "divider" />
-                <SideBarItem sidePiece = "Card" idConnect= "card-item"/>
-                <SideBarItem sidePiece = "Footer" idConnect= "footer"/>
-                <SideBarItem sidePiece = "Settings" />
+                {sideBarItemDisplay}
             </Col>
         </Row>
 
