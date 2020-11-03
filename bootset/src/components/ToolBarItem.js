@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ToolBarItem = () => {
+const ToolBarItem = ({show}) => {
 return (
-    <button>Hi!!!</button>
+    <div>{show}</div>
 )
 
 }

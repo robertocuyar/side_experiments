@@ -1,6 +1,6 @@
-export const navbarSelect = tool => {
+export const navbarSelect = piece => {
     return {
         type: 'NAVBAR_SELECTED',
-        payload: 'Tool Bar'
+        payload: piece
     }
 }

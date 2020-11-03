@@ -1,6 +1,12 @@
+import React from 'react';
 import { combineReducers} from "redux";
-import { navbarSelect } from "../actions";
 
+
+const toolsReducer = () => {
+    return [
+        {structure: <button>Navbar</button>}
+    ]
+}
 const selectedToolReducer = (navbarSelect = null, action){
  if(action.type === 'NAVBAR_SELECTED'){
      return action.payload;
@@ -9,5 +15,6 @@ const selectedToolReducer = (navbarSelect = null, action){
 }
 
 export default combineReducers ( {
-    selectedToolReducer
+    tools: toolsReducer,
+    selectedTool: selectedToolReducer
 })
