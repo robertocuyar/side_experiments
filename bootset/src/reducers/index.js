@@ -7,7 +7,7 @@ const toolsReducer = () => {
         {structure: <button>Navbar</button>}
     ]
 }
-const selectedToolReducer = (navbarSelect = null, action){
+const selectedToolReducer = (navbarSelect = null, action) =>{
  if(action.type === 'NAVBAR_SELECTED'){
      return action.payload;
  }

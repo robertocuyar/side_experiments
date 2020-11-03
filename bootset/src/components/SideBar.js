@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SideBarItem from "./SideBarItem";
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
+import {useDispatch} from "react-redux";
 
 const sideItems = [
     {
@@ -30,7 +31,7 @@ const sideItems = [
     }
 
 ]
-
+// const dispatch = useDispatch();
 const SideBar = () => {
 
     const sideBarItemDisplay = sideItems.map(({piece, connect})=>{
