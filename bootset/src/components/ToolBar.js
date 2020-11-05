@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
-import ToolBarItem from "./ToolBarItem";
+
 import { connect } from "react-redux";
-import {navbarSelect} from "../actions";
 
-class ToolBar extends Component {
-    // const [activeTool, setActiveTool] = useState(<h1>Tool Bar</h1>)
 
-    render() {
+const ToolBar = ({tool}) =>{
+
+    if(tool === null){
+        return <div>Tool Bar</div>
+    }
+
         return(
         <Container fluid className={'my-3'}>
-          <ToolBarItem show={this.props.tools.structure} />
+            <div>{tool.structure}</div>
         </Container>
         )
     }
-}
+
 const mapStateToProps = state => {
-    return {tools: state.tools}
+    return {tool: state.selectedTool}
 };
-export default connect(mapStateToProps, {navbarSelect}) (ToolBar);
+export default connect(mapStateToProps) (ToolBar);

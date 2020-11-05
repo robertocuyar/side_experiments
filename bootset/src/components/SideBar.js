@@ -2,49 +2,36 @@ import React, {Component} from 'react';
 import SideBarItem from "./SideBarItem";
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
-import {useDispatch} from "react-redux";
+import { connect } from 'react-redux';
+import { selectTool } from '../actions';
 
-const sideItems = [
-    {
-        piece: "Navigation Bar",
-        connect: "navigation"
-    },
-    {
-        piece: "Jumbotron",
-        connect: "jumbo"
-    },
-    {
-        piece: "Body Component",
-        connect: "divider"
-    },
-    {
-        piece: "Card",
-        connect: "card-item"
-    },
-    {
-        piece: "Footer",
-        connect: "footer"
-    },
-    {
-        piece: "Settings",
-        connect: "settings"
+
+class SideBar extends Component {
+    render() {
+        const sideBarItemDisplay = this.props.tools.map( tool => {
+            return (
+            //     <SideBarItem sidePiece={tool.piece}
+            //                     onClick={()=>this.props.selectTool(tool)}
+            //                     key={tool.connect}
+            // />
+                <div>
+                    <div onClick={()=>this.props.selectTool(tool)}>{tool.piece}</div>
+                </div>
+            )
+        })
+        return (
+            <Row className={"my-2"}>
+                <Col>
+                    {sideBarItemDisplay}
+                </Col>
+            </Row>
+
+        )
     }
-
-]
-// const dispatch = useDispatch();
-const SideBar = () => {
-
-    const sideBarItemDisplay = sideItems.map(({piece, connect})=>{
-        return <SideBarItem sidePiece = {piece} idConnect={connect} /*onClick={()=> this.props.navbarSelect(piece)}*/ />
-    })
-    return (
-        <Row className={"my-2"}>
-            <Col>
-                {sideBarItemDisplay}
-            </Col>
-        </Row>
-
-    )
+};
+const mapStateToProps = state => {
+    return { tools: state.tools }
 };
 
-export default SideBar;
+export default connect(mapStateToProps, { selectTool }) (SideBar);
+
