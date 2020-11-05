@@ -1,5 +1,7 @@
 import React from 'react';
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
+import {NavBarSimple} from "../references/navbars";
+
 
 
 const toolsReducer = () => {
@@ -7,43 +9,62 @@ const toolsReducer = () => {
         {
             piece: "Navigation Bar",
             connect: "navigation",
-            structure: <button>Navbar</button>
+            structure: ['Nav Bar Simple', 'Nav Bar Logo']
         },
         {
             piece: "Jumbotron",
             connect: "jumbo",
-            structure: <button>Jumbotron</button>
+            structure: ['Jumbotron']
         },
         {
             piece: "Body Component",
             connect: "divider",
-            structure: <button>Component</button>
+            structure: ['Component']
         },
         {
             piece: "Card",
             connect: "card-item",
-            structure: <button>Card</button>
+            structure: ['Card']
         },
         {
             piece: "Footer",
             connect: "footer",
-            structure: <button>Footer</button>
+            structure: ['Footer']
         },
         {
             piece: "Settings",
             connect: "settings",
-            structure: <button>Settings</button>
+            structure: ['Settings']
         }
     ]
 }
-const selectedToolReducer = (selectedTool = null, action) =>{
- if(action.type === 'TOOL_SELECTED'){
-     return action.payload;
- }
- return selectedTool;
+
+const selectedToolReducer = (selectedTool = null, action) => {
+    if (action.type === 'TOOL_SELECTED') {
+        return action.payload;
+    }
+    return selectedTool;
 }
 
-export default combineReducers ( {
+const toolChangeReducer = () => {
+    return [
+        {
+            structure: NavBarSimple,
+            piece: "Navbar Simple"
+        }
+    ]
+}
+
+const selectedDisplayChange = (selectedChange = null, action) => {
+    if (action.type === 'TOOL_CHANGE_SELECTED') {
+        return action.payload
+    }
+    return selectedChange;
+}
+
+export default combineReducers({
     tools: toolsReducer,
-    selectedTool: selectedToolReducer
+    selectedTool: selectedToolReducer,
+    changeTools: toolChangeReducer,
+    selectedChange: selectedDisplayChange
 })

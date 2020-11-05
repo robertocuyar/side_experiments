@@ -9,10 +9,12 @@ const ToolBar = ({tool}) =>{
     if(tool === null){
         return <div>Tool Bar</div>
     }
-
+    const buttonDisplay = tool.structure.map(button =>{
+        return <button>{button}</button>
+    })
         return(
         <Container fluid className={'my-3'}>
-            <div>{tool.structure}</div>
+            <div key={tool.connect}>{buttonDisplay}</div>
         </Container>
         )
     }
