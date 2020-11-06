@@ -4,9 +4,9 @@ export const selectTool = tool => {
         payload: tool
     }
 }
-export const selectNavBarChange = navChange => {
+export const selectNavChange = change => {
     return {
-        type: 'TOOL_CHANGE_SELECTED',
-        payload: navChange
+        type: 'NAV_CHANGE_SELECTED',
+        payload: change
     }
 }

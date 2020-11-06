@@ -2,8 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 
 export const NavBarSimple = () => {
-    return (
-        <Navbar bg="dark" variant="dark">
+    return [<Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#home">
                 <img
                     alt=""
@@ -14,7 +13,21 @@ export const NavBarSimple = () => {
                 />{' '}
                 React Bootstrap
             </Navbar.Brand>
-        </Navbar>
+        </Navbar>]
 
-    )
-}
+
+};
+
+export const NavBarLogo = () => {
+    return [<Navbar bg="dark">
+        <Navbar.Brand href="#home">
+            <img
+                src="/logo.svg"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+            />
+        </Navbar.Brand>
+    </Navbar>]
+};

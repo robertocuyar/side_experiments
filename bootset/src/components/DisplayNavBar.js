@@ -1,9 +1,16 @@
 import React from 'react';
+import { connect } from "react-redux";
 
-const DisplayNavBar = () => {
+
+const DisplayNavBar = ({change}) => {
     return (
-        <div>DisplayNavBar</div>
+        <div>{change}</div>
     )
-}
 
-export default DisplayNavBar;
+}
+const mapStateToProps = state => {
+    return {change: state.selectedNavChange}
+};
+
+
+export default connect(mapStateToProps) (DisplayNavBar);
