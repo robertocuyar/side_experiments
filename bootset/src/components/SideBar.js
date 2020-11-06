@@ -14,7 +14,7 @@ class SideBar extends Component {
             //                     onClick={()=>this.props.selectTool(tool)}
             //                     key={tool.connect}
             // />
-                <div>
+                <div key={tool.connect}>
                     <div onClick={()=>this.props.selectTool(tool)}>{tool.piece}</div>
                 </div>
             )

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {combineReducers} from "redux";
 import {NavBarSimple} from "../references/navbars";
 
@@ -9,32 +9,32 @@ const toolsReducer = () => {
         {
             piece: "Navigation Bar",
             connect: "navigation",
-            structure: ['Nav Bar Simple', 'Nav Bar Logo']
+            structure: [{text: 'Nav Bar Simple', id: 'navSimple'}, {text: 'Nav Bar Logo', id: 'navLogo'}]
         },
         {
             piece: "Jumbotron",
             connect: "jumbo",
-            structure: ['Jumbotron']
+            structure: [{text: 'Jumbotron', id: 'jumbo'}]
         },
         {
             piece: "Body Component",
             connect: "divider",
-            structure: ['Component']
+            structure: [{text: 'Component', id:'component'}]
         },
         {
             piece: "Card",
             connect: "card-item",
-            structure: ['Card']
+            structure: [{text: 'Card', id: 'card'}]
         },
         {
             piece: "Footer",
             connect: "footer",
-            structure: ['Footer']
+            structure: [{text: 'Footer', id: 'footer'}]
         },
         {
             piece: "Settings",
             connect: "settings",
-            structure: ['Settings']
+            structure: [{text: 'Settings', id: 'settings'}]
         }
     ]
 }

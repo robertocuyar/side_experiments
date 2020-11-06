@@ -10,7 +10,7 @@ const ToolBar = ({tool}) =>{
         return <div>Tool Bar</div>
     }
     const buttonDisplay = tool.structure.map(button =>{
-        return <button>{button}</button>
+        return <button key={button.id}>{button.text}</button>
     })
         return(
         <Container fluid className={'my-3'}>
