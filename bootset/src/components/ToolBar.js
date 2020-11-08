@@ -10,7 +10,6 @@ class ToolBar extends React.Component {
             return <div>Tool Bar</div>
         }
         const buttonDisplay = this.props.tool.structure.map(button => {
-            console.log(this.props)
             return <button onClick={() => this.props.selectNavChange(button.change)}
                            key={button.id}>{button.text}</button>
         })
