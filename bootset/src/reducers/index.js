@@ -1,8 +1,8 @@
 
 import {combineReducers} from "redux";
-import {NavBarSimple, NavBarLogo} from "../references/navbars";
+import {NavBarSimple, NavBarLogo, NavBarSearch} from "../references/navbars";
 import {simpleJumbo, fluidJumbo} from "../references/jumbotron";
-
+import {formControls, simpleForm} from "../references/forms";
 
 
 const toolsReducer = () => {
@@ -10,7 +10,11 @@ const toolsReducer = () => {
         {
             piece: "Navigation Bar",
             connect: "navigation",
-            structure: [{text: 'Nav Bar Simple', id: 'navSimple', change: NavBarSimple()}, {text: 'Nav Bar Logo', id: 'navLogo', change: NavBarLogo()}]
+            structure: [
+                {text: 'Nav Bar Simple', id: 'navSimple', change: NavBarSimple()},
+                {text: 'Nav Bar Logo', id: 'navLogo', change: NavBarLogo()},
+                {text: 'Nav Bar Search', id: 'navSearch', change: NavBarSearch()}
+            ]
         },
         {
             piece: "Jumbotron",
@@ -18,9 +22,9 @@ const toolsReducer = () => {
             structure: [{text: 'Jumbotron', id: 'jumbo', change: simpleJumbo()}, {text: 'Fluid Jumbo', id: 'jumboFluid', change: fluidJumbo()}]
         },
         {
-            piece: "Body Component",
-            connect: "divider",
-            structure: [{text: 'Component', id:'component'}]
+            piece: "Forms",
+            connect: "form",
+            structure: [{text: 'Forms', id:'form', change: simpleForm()}, {text: 'Form Controls', id: 'formControl', change: formControls()}]
         },
         {
             piece: "Card",
@@ -60,10 +64,17 @@ const selectedJumboDisplayChange = (selectedJumboChange = null, action) => {
     }
     return selectedJumboChange;
 }
+const selectedFormDisplayChange = (selectedFormChange = null, action) => {
+    if (action.type === 'FORM_CHANGE_SELECTED') {
+        return action.payload
+    }
+    return selectedFormChange;
+}
 
 export default combineReducers({
     tools: toolsReducer,
     selectedTool: selectedToolReducer,
     selectedNavChange: selectedNavDisplayChange,
-    selectedJumboChange: selectedJumboDisplayChange
+    selectedJumboChange: selectedJumboDisplayChange,
+    selectedFormChange: selectedFormDisplayChange
 })

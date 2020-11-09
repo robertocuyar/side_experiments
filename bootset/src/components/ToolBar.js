@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import { selectNavChange, selectJumboChange } from "../actions";
+import { selectNavChange, selectJumboChange, selectFormChange } from "../actions";
 
 import { connect } from "react-redux";
 
@@ -16,6 +16,10 @@ class ToolBar extends React.Component {
             }
             if (button.id.includes('jumbo')){
                 return <button onClick={() => this.props.selectJumboChange(button.change)}
+                               key={button.id}>{button.text}</button>
+            }
+            if (button.id.includes('form')){
+                return <button onClick={()=> this.props.selectFormChange(button.change)}
                                key={button.id}>{button.text}</button>
             }
         })
@@ -35,4 +39,4 @@ class ToolBar extends React.Component {
 const mapStateToProps = state => {
     return {tool: state.selectedTool}
 };
-export default connect(mapStateToProps, { selectNavChange, selectJumboChange }) (ToolBar);
+export default connect(mapStateToProps, { selectNavChange, selectJumboChange, selectFormChange }) (ToolBar);

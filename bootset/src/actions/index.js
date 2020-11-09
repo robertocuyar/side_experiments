@@ -16,3 +16,9 @@ export const selectJumboChange = change => {
         payload: change
     }
 }
+export const selectFormChange = change => {
+    return {
+        type: 'FORM_CHANGE_SELECTED',
+        payload: change
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import DisplayNavBar from "./DisplayNavBar";
 import DisplayJumbotron from "./DisplayJumbotron";
+import DisplayForm from "./DisplayForm";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,7 +19,7 @@ const DisplayPage =  () => {
             <DisplayJumbotron/>
                 </Col>
             </Row>
-            {/*<DisplayCard/>*/}
+            <DisplayForm/>
         </Container>
 
     )
