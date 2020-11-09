@@ -1,9 +1,15 @@
 import React from 'react';
+import {connect} from "react-redux";
 
-const DisplayJumbotron = () => {
+const DisplayJumbotron = ({change}) => {
     return (
-        <div>DisplayJumbotron</div>
+        <div>{change}</div>
     )
 }
 
-export default DisplayJumbotron;
+const mapStateToProps = state => {
+    return {change: state.selectedJumboChange}
+};
+
+
+export default connect(mapStateToProps) (DisplayJumbotron);

@@ -10,10 +10,6 @@ class SideBar extends Component {
     render() {
         const sideBarItemDisplay = this.props.tools.map( tool => {
             return (
-            //     <SideBarItem sidePiece={tool.piece}
-            //                     onClick={()=>this.props.selectTool(tool)}
-            //                     key={tool.connect}
-            // />
                 <div key={tool.connect}>
                     <div onClick={()=>this.props.selectTool(tool)}>{tool.piece}</div>
                 </div>

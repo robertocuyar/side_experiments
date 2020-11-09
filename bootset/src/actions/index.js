@@ -10,3 +10,9 @@ export const selectNavChange = change => {
         payload: change
     }
 }
+export const selectJumboChange = change => {
+    return {
+        type: 'JUMBO_CHANGE_SELECTED',
+        payload: change
+    }
+}

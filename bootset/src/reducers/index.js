@@ -1,6 +1,7 @@
 
 import {combineReducers} from "redux";
 import {NavBarSimple, NavBarLogo} from "../references/navbars";
+import {simpleJumbo, fluidJumbo} from "../references/jumbotron";
 
 
 
@@ -14,7 +15,7 @@ const toolsReducer = () => {
         {
             piece: "Jumbotron",
             connect: "jumbo",
-            structure: [{text: 'Jumbotron', id: 'jumbo'}]
+            structure: [{text: 'Jumbotron', id: 'jumbo', change: simpleJumbo()}, {text: 'Fluid Jumbo', id: 'jumboFluid', change: fluidJumbo()}]
         },
         {
             piece: "Body Component",
@@ -46,14 +47,6 @@ const selectedToolReducer = (selectedTool = null, action) => {
     return selectedTool;
 }
 
-const toolChangeReducer = () => {
-    return [
-        {
-            structure: NavBarSimple,
-            piece: "Navbar Simple"
-        }
-    ]
-}
 
 const selectedNavDisplayChange = (selectedNavChange = null, action) => {
     if (action.type === 'NAV_CHANGE_SELECTED') {
@@ -61,10 +54,16 @@ const selectedNavDisplayChange = (selectedNavChange = null, action) => {
     }
     return selectedNavChange;
 }
+const selectedJumboDisplayChange = (selectedJumboChange = null, action) => {
+    if (action.type === 'JUMBO_CHANGE_SELECTED') {
+        return action.payload
+    }
+    return selectedJumboChange;
+}
 
 export default combineReducers({
     tools: toolsReducer,
     selectedTool: selectedToolReducer,
-    changeTools: toolChangeReducer,
-    selectedNavChange: selectedNavDisplayChange
+    selectedNavChange: selectedNavDisplayChange,
+    selectedJumboChange: selectedJumboDisplayChange
 })
