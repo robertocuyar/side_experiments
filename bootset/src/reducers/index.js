@@ -3,6 +3,9 @@ import {combineReducers} from "redux";
 import {NavBarSimple, NavBarLogo, NavBarSearch} from "../references/navbars";
 import {simpleJumbo, fluidJumbo} from "../references/jumbotron";
 import {formControls, simpleForm} from "../references/forms";
+import {listBasic, listTabbed} from "../references/lists";
+
+//Cards need to be added on
 
 
 const toolsReducer = () => {
@@ -27,9 +30,9 @@ const toolsReducer = () => {
             structure: [{text: 'Forms', id:'form', change: simpleForm()}, {text: 'Form Controls', id: 'formControl', change: formControls()}]
         },
         {
-            piece: "Card",
-            connect: "card-item",
-            structure: [{text: 'Card', id: 'card'}]
+            piece: "List Groups",
+            connect: "list",
+            structure: [{text: 'List', id: 'list', change: listBasic()}, {text: 'Tabbed List', id: 'listTabbed', change: listTabbed()}]
         },
         {
             piece: "Footer",
@@ -70,11 +73,18 @@ const selectedFormDisplayChange = (selectedFormChange = null, action) => {
     }
     return selectedFormChange;
 }
+const selectedListDisplayChange = (selectedListChange = null, action) => {
+    if (action.type === 'LIST_CHANGE_SELECTED'){
+        return action.payload
+    }
+    return selectedListChange;
+}
 
 export default combineReducers({
     tools: toolsReducer,
     selectedTool: selectedToolReducer,
     selectedNavChange: selectedNavDisplayChange,
     selectedJumboChange: selectedJumboDisplayChange,
-    selectedFormChange: selectedFormDisplayChange
+    selectedFormChange: selectedFormDisplayChange,
+    selectedListChange: selectedListDisplayChange
 })

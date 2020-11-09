@@ -22,3 +22,9 @@ export const selectFormChange = change => {
         payload: change
     }
 }
+export const selectListChange = change => {
+    return {
+        type: 'LIST_CHANGE_SELECTED',
+        payload: change
+    }
+}

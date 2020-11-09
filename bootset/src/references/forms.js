@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 export const simpleForm = ()=> {
     return [
-        <Form>
+        <Form className={'mb-3'}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
