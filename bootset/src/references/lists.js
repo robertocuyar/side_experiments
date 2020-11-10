@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from "react-bootstrap/ListGroup";
 
 export const listBasic = () => {
-    return [<ListGroup>
+    return [<ListGroup key={"listGroup"}>
             <ListGroup.Item>Cras justo odio</ListGroup.Item>
             <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
             <ListGroup.Item>Morbi leo risus</ListGroup.Item>
@@ -15,7 +15,7 @@ export const listBasic = () => {
 }
 
 export const listTabbed = () => {
-    return [<Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+    return [<Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1" key={"listTabbed"}>
             <Row>
                 <Col sm={4}>
                     <ListGroup>

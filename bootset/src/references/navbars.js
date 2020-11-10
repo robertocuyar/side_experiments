@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form'
 
 export const NavBarSimple = color => {
     return [
-        <Navbar style={{backgroundColor: color}}  variant="dark">
+        <Navbar key={"basicNav"} style={{backgroundColor: color}}  variant="dark">
             <Navbar.Brand href="#home">
                 <img
                     alt=""
@@ -26,7 +26,7 @@ export const NavBarSimple = color => {
 
 export const NavBarLogo = () => {
     return [
-        <Navbar bg="dark">
+        <Navbar key={"logoNav"} bg="dark">
         <Navbar.Brand href="#home">
             <img
                 src="/logo.svg"
@@ -42,7 +42,7 @@ export const NavBarLogo = () => {
 
 export const NavBarSearch = () => {
     return [
-        <Navbar bg="dark" variant="dark">
+        <Navbar key={"searchNav"} bg="dark" variant="dark">
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="#home">Home</Nav.Link>

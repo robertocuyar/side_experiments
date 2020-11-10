@@ -25,7 +25,7 @@ class ToolBar extends React.Component {
             if (button.id.includes('list')){
                 return <button onClick={()=> this.props.selectListChange(button.change)}
                                key={button.id}>{button.text}</button>
-            }
+            } return null;
         })
             return (
                 <Container fluid className={'my-3'}>

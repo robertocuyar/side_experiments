@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 
 export const simpleJumbo = () => {
     return [
-        <Jumbotron>
+        <Jumbotron key={"basicJumbo"}>
             <h1>Hello, world!</h1>
             <p>
                 This is a simple hero unit, a simple jumbotron-style component for calling
@@ -20,7 +20,7 @@ export const simpleJumbo = () => {
 
 export const fluidJumbo = () => {
     return [
-        <Jumbotron fluid>
+        <Jumbotron key={"fluidJumbo"} fluid>
             <Container>
                 <h1>Fluid jumbotron</h1>
                 <p>

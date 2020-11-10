@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 export const simpleForm = ()=> {
     return [
-        <Form className={'mb-3'}>
+        <Form key={"simpleForm"} className={'mb-3'}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
@@ -29,7 +29,7 @@ export const simpleForm = ()=> {
 
 export const formControls = ()=> {
     return [
-        <Form>
+        <Form key={"controlsForm"}>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="name@example.com" />
