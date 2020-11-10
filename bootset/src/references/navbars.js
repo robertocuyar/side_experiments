@@ -5,9 +5,9 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 
-export const NavBarSimple = () => {
+export const NavBarSimple = color => {
     return [
-        <Navbar bg="dark" variant="dark">
+        <Navbar style={{backgroundColor: color}}  variant="dark">
             <Navbar.Brand href="#home">
                 <img
                     alt=""

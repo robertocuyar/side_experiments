@@ -28,3 +28,9 @@ export const selectListChange = change => {
         payload: change
     }
 }
+export const inputNavColor = color => {
+    return {
+        type: 'NAV_COLOR_CHANGE',
+        payload: color
+    }
+}

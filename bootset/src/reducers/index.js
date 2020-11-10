@@ -14,7 +14,7 @@ const toolsReducer = () => {
             piece: "Navigation Bar",
             connect: "navigation",
             structure: [
-                {text: 'Nav Bar Simple', id: 'navSimple', change: NavBarSimple()},
+                {text: 'Nav Bar Simple', id: 'navSimple', change: NavBarSimple("grey")},
                 {text: 'Nav Bar Logo', id: 'navLogo', change: NavBarLogo()},
                 {text: 'Nav Bar Search', id: 'navSearch', change: NavBarSearch()}
             ]
@@ -54,7 +54,6 @@ const selectedToolReducer = (selectedTool = null, action) => {
     return selectedTool;
 }
 
-
 const selectedNavDisplayChange = (selectedNavChange = null, action) => {
     if (action.type === 'NAV_CHANGE_SELECTED') {
         return action.payload
@@ -88,3 +87,11 @@ export default combineReducers({
     selectedFormChange: selectedFormDisplayChange,
     selectedListChange: selectedListDisplayChange
 })
+
+/* let example = x.map((item)=> {
+if(Object.keys(item).includes('name)){
+return item = {name: 'bye'};}
+return item;
+});
+
+ */
