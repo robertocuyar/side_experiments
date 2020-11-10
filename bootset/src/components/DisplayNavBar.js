@@ -3,14 +3,18 @@ import { connect } from "react-redux";
 
 
 const DisplayNavBar = ({change}) => {
-    return (
-        <div>{change}</div>
-    )
+
+
+        return (
+            <div>{change}</div>
+        )
 
 }
 const mapStateToProps = state => {
+    console.log(state);
     return {change: state.selectedNavChange}
 };
+
 
 
 export default connect(mapStateToProps) (DisplayNavBar);

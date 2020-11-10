@@ -5,25 +5,26 @@ import { selectNavChange, selectJumboChange, selectFormChange, selectListChange 
 import { connect } from "react-redux";
 
 class ToolBar extends React.Component {
+
     toolBarDisplayRender() {
         if (this.props.tool === null) {
             return <div>Tool Bar</div>
         }
         const buttonDisplay = this.props.tool.structure.map(button => {
             if (button.id.includes('nav')) {
-                return <button onClick={() => this.props.selectNavChange(button.change)}
+                return <button onClick={() => this.props.selectNavChange(button.change())}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('jumbo')){
-                return <button onClick={() => this.props.selectJumboChange(button.change)}
+                return <button onClick={() => this.props.selectJumboChange(button.change())}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('form')){
-                return <button onClick={()=> this.props.selectFormChange(button.change)}
+                return <button onClick={()=> this.props.selectFormChange(button.change())}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('list')){
-                return <button onClick={()=> this.props.selectListChange(button.change)}
+                return <button onClick={()=> this.props.selectListChange(button.change())}
                                key={button.id}>{button.text}</button>
             } return null;
         })
@@ -31,7 +32,6 @@ class ToolBar extends React.Component {
                 <Container fluid className={'my-3'}>
                     <div key={this.props.tool.connect}>
                         {buttonDisplay}
-                        <input type="text"/>
                     </div>
                 </Container>
             )

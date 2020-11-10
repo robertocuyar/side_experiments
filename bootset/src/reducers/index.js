@@ -1,4 +1,3 @@
-
 import {combineReducers} from "redux";
 import {NavBarSimple, NavBarLogo, NavBarSearch} from "../references/navbars";
 import {simpleJumbo, fluidJumbo} from "../references/jumbotron";
@@ -14,25 +13,25 @@ const toolsReducer = () => {
             piece: "Navigation Bar",
             connect: "navigation",
             structure: [
-                {text: 'Nav Bar Simple', id: 'navSimple', change: NavBarSimple("grey")},
-                {text: 'Nav Bar Logo', id: 'navLogo', change: NavBarLogo()},
-                {text: 'Nav Bar Search', id: 'navSearch', change: NavBarSearch()}
+                {text: 'Nav Bar Simple', id: 'navSimple', change: NavBarSimple},
+                {text: 'Nav Bar Logo', id: 'navLogo', change: NavBarLogo},
+                {text: 'Nav Bar Search', id: 'navSearch', change: NavBarSearch}
             ]
         },
         {
             piece: "Jumbotron",
             connect: "jumbo",
-            structure: [{text: 'Jumbotron', id: 'jumbo', change: simpleJumbo()}, {text: 'Fluid Jumbo', id: 'jumboFluid', change: fluidJumbo()}]
+            structure: [{text: 'Jumbotron', id: 'jumbo', change: simpleJumbo}, {text: 'Fluid Jumbo', id: 'jumboFluid', change: fluidJumbo}]
         },
         {
             piece: "Forms",
             connect: "form",
-            structure: [{text: 'Forms', id:'form', change: simpleForm()}, {text: 'Form Controls', id: 'formControl', change: formControls()}]
+            structure: [{text: 'Forms', id:'form', change: simpleForm}, {text: 'Form Controls', id: 'formControl', change: formControls}]
         },
         {
             piece: "List Groups",
             connect: "list",
-            structure: [{text: 'List', id: 'list', change: listBasic()}, {text: 'Tabbed List', id: 'listTabbed', change: listTabbed()}]
+            structure: [{text: 'List', id: 'list', change: listBasic}, {text: 'Tabbed List', id: 'listTabbed', change: listTabbed}]
         },
         {
             piece: "Footer",
@@ -42,7 +41,7 @@ const toolsReducer = () => {
         {
             piece: "Settings",
             connect: "settings",
-            structure: [{text: 'Settings', id: 'settings'}]
+            structure: [{text: 'Nav Bar Color', id: 'settings'}]
         }
     ]
 }

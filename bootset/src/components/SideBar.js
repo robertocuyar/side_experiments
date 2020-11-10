@@ -15,11 +15,13 @@ class SideBar extends Component {
             )
         })
         return (
+            <div>
             <Row className={"my-2"}>
                 <Col>
                     {sideBarItemDisplay}
                 </Col>
             </Row>
+            </div>
 
         )
     }
