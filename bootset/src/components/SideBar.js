@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import SideBarItem from "./SideBarItem";
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import { connect } from 'react-redux';

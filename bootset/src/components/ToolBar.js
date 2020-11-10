@@ -29,7 +29,10 @@ class ToolBar extends React.Component {
         })
             return (
                 <Container fluid className={'my-3'}>
-                    <div key={this.props.tool.connect}>{buttonDisplay}</div>
+                    <div key={this.props.tool.connect}>
+                        {buttonDisplay}
+                        <input type="text"/>
+                    </div>
                 </Container>
             )
 
