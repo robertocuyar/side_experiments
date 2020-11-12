@@ -3,9 +3,9 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
-export const simpleJumbo = () => {
+export const simpleJumbo = color => {
     return [
-        <Jumbotron key={"basicJumbo"}>
+        <Jumbotron key={"basicJumbo"} style={{backgroundColor : color}}>
             <h1>Hello, world!</h1>
             <p>
                 This is a simple hero unit, a simple jumbotron-style component for calling
@@ -18,9 +18,9 @@ export const simpleJumbo = () => {
     ]
 }
 
-export const fluidJumbo = () => {
+export const fluidJumbo = color => {
     return [
-        <Jumbotron key={"fluidJumbo"} fluid>
+        <Jumbotron key={"fluidJumbo"} style={{backgroundColor : color}} fluid>
             <Container>
                 <h1>Fluid jumbotron</h1>
                 <p>

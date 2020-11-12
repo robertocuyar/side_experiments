@@ -12,11 +12,11 @@ class ToolBar extends React.Component {
         }
         const buttonDisplay = this.props.tool.structure.map(button => {
             if (button.id.includes('nav')) {
-                return <button onClick={() => this.props.selectNavChange(button.change(this.props.color))}
+                return <button onClick={() => this.props.selectNavChange(button.change(this.props.colorNav))}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('jumbo')){
-                return <button onClick={() => this.props.selectJumboChange(button.change())}
+                return <button onClick={() => this.props.selectJumboChange(button.change(this.props.colorJumbo))}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('form')){
@@ -44,7 +44,10 @@ class ToolBar extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {tool: state.selectedTool,
-    color: state.selectedNavColor}
+    return {
+        tool: state.selectedTool,
+        colorNav: state.selectedNavColor,
+        colorJumbo: state.selectedJumboColor
+    }
 };
 export default connect(mapStateToProps, { selectNavChange, selectJumboChange, selectFormChange, selectListChange }) (ToolBar);

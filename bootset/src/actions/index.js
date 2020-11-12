@@ -34,3 +34,9 @@ export const inputNavColor = color => {
         payload: color
     }
 }
+export const inputJumboColor = color => {
+    return {
+        type: 'JUMBO_COLOR_CHANGE',
+        payload: color
+    }
+}

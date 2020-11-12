@@ -71,6 +71,12 @@ const selectedJumboDisplayChange = (selectedJumboChange = null, action) => {
     }
     return selectedJumboChange;
 }
+const selectedJumboDisplayColor = (selectedJumboColor = 'lightgrey', action) => {
+    if(action.type === 'JUMBO_COLOR_CHANGE') {
+        return action.payload
+    }
+    return selectedJumboColor;
+}
 const selectedFormDisplayChange = (selectedFormChange = null, action) => {
     if (action.type === 'FORM_CHANGE_SELECTED') {
         return action.payload
@@ -91,7 +97,8 @@ export default combineReducers({
     selectedJumboChange: selectedJumboDisplayChange,
     selectedFormChange: selectedFormDisplayChange,
     selectedListChange: selectedListDisplayChange,
-    selectedNavColor: selectedNavDisplayColor
+    selectedNavColor: selectedNavDisplayColor,
+    selectedJumboColor: selectedJumboDisplayColor
 })
 
 /* let example = x.map((item)=> {
