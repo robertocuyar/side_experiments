@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from "react-redux";
-import {selectNavChange} from "../actions";
+import {inputNavColor, selectNavChange} from "../actions";
 
 
 class ColorToolBar extends React.Component {
    toolBarDisplayRender () {
-       if (this.props.change === null) {
+       if (this.props.changeNav === null) {
            return <div>COLOR TOOL BAR</div>
        }
-           return (<div>
-                   <h2>Input Color</h2>
-                   {/*<input type="text" onClick={() => this.props.selectNavChange(this.props.change('blue'))}/>*/}
+           return (
+               <div>
+                   <label>Nav Bar Color Change</label>
+                   <input type="text" onChange={(e)=> this.props.inputNavColor(e.target.value)}/>
                </div>
            )
 
@@ -25,8 +26,11 @@ class ColorToolBar extends React.Component {
 
 
 const mapStateToProps = state => {
-    return {change: state.selectedNavChange}
+    return {
+        changeNav: state.selectedNavChange,
+    changeJumbo: state.selectedJumboChange
+    }
 };
 
 
-export default connect(mapStateToProps, { selectNavChange}) (ColorToolBar);
+export default connect(mapStateToProps, { inputNavColor, selectNavChange}) (ColorToolBar);

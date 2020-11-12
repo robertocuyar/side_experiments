@@ -59,6 +59,12 @@ const selectedNavDisplayChange = (selectedNavChange = null, action) => {
     }
     return selectedNavChange;
 }
+const selectedNavDisplayColor = (selectedNavColor = 'grey', action) => {
+    if(action.type === 'NAV_COLOR_CHANGE') {
+        return action.payload
+    }
+    return selectedNavColor;
+}
 const selectedJumboDisplayChange = (selectedJumboChange = null, action) => {
     if (action.type === 'JUMBO_CHANGE_SELECTED') {
         return action.payload
@@ -84,7 +90,8 @@ export default combineReducers({
     selectedNavChange: selectedNavDisplayChange,
     selectedJumboChange: selectedJumboDisplayChange,
     selectedFormChange: selectedFormDisplayChange,
-    selectedListChange: selectedListDisplayChange
+    selectedListChange: selectedListDisplayChange,
+    selectedNavColor: selectedNavDisplayColor
 })
 
 /* let example = x.map((item)=> {

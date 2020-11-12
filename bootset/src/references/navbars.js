@@ -24,9 +24,9 @@ export const NavBarSimple = color => {
 
 };
 
-export const NavBarLogo = () => {
+export const NavBarLogo = color => {
     return [
-        <Navbar key={"logoNav"} bg="dark">
+        <Navbar key={"logoNav"} style={{backgroundColor: color}} >
         <Navbar.Brand href="#home">
             <img
                 src="/logo.svg"
@@ -40,9 +40,9 @@ export const NavBarLogo = () => {
     ]
 };
 
-export const NavBarSearch = () => {
+export const NavBarSearch = color => {
     return [
-        <Navbar key={"searchNav"} bg="dark" variant="dark">
+        <Navbar key={"searchNav"} style={{backgroundColor: color}} variant="dark">
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="#home">Home</Nav.Link>

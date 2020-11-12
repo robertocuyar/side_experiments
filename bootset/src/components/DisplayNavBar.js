@@ -11,7 +11,6 @@ const DisplayNavBar = ({change}) => {
 
 }
 const mapStateToProps = state => {
-    console.log(state);
     return {change: state.selectedNavChange}
 };
 
