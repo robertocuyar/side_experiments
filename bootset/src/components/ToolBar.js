@@ -5,7 +5,6 @@ import { selectNavChange, selectJumboChange, selectFormChange, selectListChange 
 import { connect } from "react-redux";
 
 class ToolBar extends React.Component {
-    state = {color: 'grey'};
 
     toolBarDisplayRender() {
         if (this.props.tool === null) {
@@ -13,19 +12,19 @@ class ToolBar extends React.Component {
         }
         const buttonDisplay = this.props.tool.structure.map(button => {
             if (button.id.includes('nav')) {
-                return <button onClick={() => this.props.selectNavChange(button.change(this.state.color))}
+                return <button onClick={() => this.props.selectNavChange(button.id)}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('jumbo')){
-                return <button onClick={() => this.props.selectJumboChange(button.change(this.state.color))}
+                return <button onClick={() => this.props.selectJumboChange(button.id)}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('form')){
-                return <button onClick={()=> this.props.selectFormChange(button.change())}
+                return <button onClick={()=> this.props.selectFormChange(button.id)}
                                key={button.id}>{button.text}</button>
             }
             if (button.id.includes('list')){
-                return <button onClick={()=> this.props.selectListChange(button.change())}
+                return <button onClick={()=> this.props.selectListChange(button.id)}
                                key={button.id}>{button.text}</button>
             } return null;
         })
@@ -34,7 +33,6 @@ class ToolBar extends React.Component {
                     <div key={this.props.tool.connect}>
                         {buttonDisplay}
                     </div>
-                    <input type="text" onChange={(e)=>this.setState({color: e.target.value})}/>
                 </Container>
             )
 
@@ -47,9 +45,7 @@ class ToolBar extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        tool: state.selectedTool,
-        colorNav: state.selectedNavColor,
-        colorJumbo: state.selectedJumboColor
+        tool: state.selectedTool
     }
 };
 export default connect(mapStateToProps, { selectNavChange, selectJumboChange, selectFormChange, selectListChange }) (ToolBar);

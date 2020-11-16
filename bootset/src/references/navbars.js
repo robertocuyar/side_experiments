@@ -11,7 +11,7 @@ export const NavBarSimple = color => {
         <Navbar key={"basicNav"} style={{backgroundColor: color}}  variant="dark">
             <Navbar.Brand href="#home">
                 <img
-                    alt="Logo"
+                    alt=""
                     src="/logo.svg"
                     width="30"
                     height="30"

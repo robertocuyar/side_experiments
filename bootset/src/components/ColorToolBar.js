@@ -5,9 +5,9 @@ import {inputNavColor, inputJumboColor} from "../actions";
 
 class ColorToolBar extends React.Component {
    toolBarDisplayRender () {
-       // if (this.props.changeNav === null && this.props.changeJumbo === null) {
-       //     return <div>COLOR TOOL BAR</div>
-       // }
+       if (this.props.changeNav === null && this.props.changeJumbo === null) {
+           return <div>COLOR TOOL BAR</div>
+       }
            return (
                <div>
                    <label>Nav Bar Color Change</label>

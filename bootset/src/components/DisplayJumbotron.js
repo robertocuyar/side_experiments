@@ -1,14 +1,24 @@
 import React from 'react';
 import {connect} from "react-redux";
+import { simpleJumbo, fluidJumbo } from "../references/jumbotron";
 
-const DisplayJumbotron = ({change}) => {
-    return (
-        <div>{change}</div>
-    )
+const DisplayJumbotron = ({change, color}) => {
+    switch(change){
+        case null:
+            return null;
+        case "jumbo":
+            return simpleJumbo(color);
+        case "jumboFluid":
+            return fluidJumbo(color);
+    }
+
 }
 
 const mapStateToProps = state => {
-    return {change: state.selectedJumboChange}
+    return {
+        change: state.selectedJumboChange,
+        color: state.selectedJumboColor
+    }
 };
 
 

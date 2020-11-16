@@ -13,7 +13,7 @@ const MainContent = () => {
         <ToolBar />
             </Row>
             <Row>
-                {/*<ColorToolBar />*/}
+                <ColorToolBar />
             </Row>
             <Row>
                 <DisplayPage/>

@@ -1,5 +1,4 @@
 import {combineReducers} from "redux";
-import {NavBarSimple, NavBarLogo, NavBarSearch} from "../references/navbars";
 import {simpleJumbo, fluidJumbo} from "../references/jumbotron";
 import {formControls, simpleForm} from "../references/forms";
 import {listBasic, listTabbed} from "../references/lists";
@@ -13,9 +12,10 @@ const toolsReducer = () => {
             piece: "Navigation Bar",
             connect: "navigation",
             structure: [
-                {text: 'Nav Bar Simple', id: 'navSimple', change: NavBarSimple},
-                {text: 'Nav Bar Logo', id: 'navLogo', change: NavBarLogo},
-                {text: 'Nav Bar Search', id: 'navSearch', change: NavBarSearch}
+                {text: 'Nav Bar Simple', id: 'navSimple'},
+                {text: 'Nav Bar Logo', id: 'navLogo'},
+                {text: 'Nav Bar Search', id: 'navSearch'},
+                {text: 'Clear Nav Bar', id: 'navClear'}
             ]
         },
         {
