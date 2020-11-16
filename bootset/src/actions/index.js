@@ -52,3 +52,9 @@ export const inputListColor = color => {
         payload: color
     }
 }
+export const inputBodyColor = color => {
+    return{
+        type: 'BODY_COLOR_CHANGE',
+        payload: color
+    }
+}

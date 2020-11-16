@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import {inputNavColor, inputJumboColor, inputFormColor, inputListColor} from "../actions";
+import {inputNavColor, inputJumboColor, inputFormColor, inputListColor, inputBodyColor} from "../actions";
 
 
 class ColorToolBar extends React.Component {
@@ -19,6 +19,8 @@ class ColorToolBar extends React.Component {
                    <input type="text" onChange={(e)=> this.props.inputFormColor(e.target.value)}/>
                    <label>List Color Change</label>
                    <input type="text" onChange={(e) => this.props.inputListColor(e.target.value)}/>
+                   <label>Body Color Change</label>
+                   <input type="text" onChange={(e) => this.props.inputBodyColor(e.target.value)}/>
                </div>
            )
 
@@ -43,4 +45,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, { inputNavColor, inputJumboColor, inputFormColor, inputListColor}) (ColorToolBar);
+export default connect(mapStateToProps, { inputNavColor, inputJumboColor, inputFormColor, inputListColor, inputBodyColor}) (ColorToolBar);

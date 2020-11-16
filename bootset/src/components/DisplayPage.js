@@ -6,10 +6,11 @@ import DisplayList from "./DisplayList";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { connect } from 'react-redux';
 
-const DisplayPage =  () => {
+const DisplayPage =  ({color}) => {
     return (
-        <Container>
+        <Container className={'px-0'} style={{backgroundColor: color}}>
             <Row>
                 <Col>
             <DisplayNavBar />
@@ -34,5 +35,10 @@ const DisplayPage =  () => {
 
     )
 }
+const mapStateToProps = state => {
+    return {
+        color: state.selectedBodyColor
+    }
+}
 
-export default DisplayPage;
+export default connect(mapStateToProps)(DisplayPage);

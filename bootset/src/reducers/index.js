@@ -105,11 +105,17 @@ const selectedListDisplayChange = (selectedListChange = null, action) => {
     }
     return selectedListChange;
 }
-const selectedListDisplayColor = (selectedListColor = 'grey', action) => {
+const selectedListDisplayColor = (selectedListColor = 'lightgrey', action) => {
     if(action.type === 'LIST_COLOR_CHANGE'){
         return action.payload;
     }
     return selectedListColor;
+}
+const selectedBodyDisplayColor = (selectedBodyColor = 'white', action)=> {
+    if(action.type === 'BODY_COLOR_CHANGE'){
+        return action.payload;
+    }
+    return selectedBodyColor;
 }
 
 
@@ -124,7 +130,8 @@ export default combineReducers({
     selectedNavColor: selectedNavDisplayColor,
     selectedJumboColor: selectedJumboDisplayColor,
     selectedFormColor: selectedFormDisplayColor,
-    selectedListColor: selectedListDisplayColor
+    selectedListColor: selectedListDisplayColor,
+    selectedBodyColor: selectedBodyDisplayColor
 })
 
 /* let example = x.map((item)=> {
