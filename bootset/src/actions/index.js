@@ -40,3 +40,9 @@ export const inputJumboColor = color => {
         payload: color
     }
 }
+export const inputFormColor = color => {
+    return {
+        type: 'FORM_COLOR_CHANGE',
+        payload: color
+    }
+}

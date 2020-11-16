@@ -1,14 +1,27 @@
-import React from 'react';
 import {connect} from "react-redux";
+import {simpleForm, formControls} from "../references/forms";
 
-const DisplayForm = ({change}) => {
-    return (
-        <div>{change}</div>
-    )
+const DisplayForm = ({change, color}) => {
+    switch (change){
+        case null:
+            return null;
+        case "form":
+            return simpleForm(color)[0];
+        case "formControl":
+            return formControls(color)[0];
+        case "formClear":
+            return null;
+        default:
+            return null;
+
+    }
 }
 
 const mapStateToProps = state => {
-    return {change: state.selectedFormChange}
+    return {
+        change: state.selectedFormChange,
+    color: state.selectedFormColor
+    }
 };
 
 

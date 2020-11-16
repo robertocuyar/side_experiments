@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from "react-redux";
 import {NavBarSimple, NavBarLogo, NavBarSearch} from "../references/navbars";
 
@@ -14,6 +13,8 @@ const DisplayNavBar = ({change, color}) => {
         case 'navSearch':
             return NavBarSearch(color)[0];
         case 'navClear':
+            return null;
+        default:
             return null;
     }
 

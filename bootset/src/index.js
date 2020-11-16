@@ -9,7 +9,6 @@ import './bootset.css';
 import reducers from "./reducers/index";
 
 
-// ReactDOM.render(<App/>, document.querySelector('#root'))
 ReactDOM.render(
     <Provider store ={createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
     <App />

@@ -2,9 +2,9 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 
-export const simpleForm = ()=> {
+export const simpleForm = color => {
     return [
-        <Form key={"simpleForm"} className={'mb-3'}>
+        <Form style={{backgroundColor: color}} key={"simpleForm"} className={'mb-3'}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
@@ -27,9 +27,9 @@ export const simpleForm = ()=> {
     ]
 }
 
-export const formControls = ()=> {
+export const formControls = color => {
     return [
-        <Form key={"controlsForm"}>
+        <Form style={{backgroundColor : color}} key={"controlsForm"}>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="name@example.com" />

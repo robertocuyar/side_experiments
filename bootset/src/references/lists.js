@@ -4,18 +4,21 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from "react-bootstrap/ListGroup";
 
-export const listBasic = () => {
-    return [<ListGroup key={"listGroup"}>
+export const listBasic = color => {
+    return [
+        <ListGroup style={{backgroundColor: color}} key={"listGroup"}>
             <ListGroup.Item>Cras justo odio</ListGroup.Item>
             <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
             <ListGroup.Item>Morbi leo risus</ListGroup.Item>
             <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
             <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-        </ListGroup>]
+        </ListGroup>
+    ]
 }
 
-export const listTabbed = () => {
-    return [<Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1" key={"listTabbed"}>
+export const listTabbed = color => {
+    return [
+        <Tab.Container style={{backgroundColor: color}} id="list-group-tabs-example" defaultActiveKey="#link1" key={"listTabbed"}>
             <Row>
                 <Col sm={4}>
                     <ListGroup>
@@ -38,5 +41,6 @@ export const listTabbed = () => {
                     </Tab.Content>
                 </Col>
             </Row>
-        </Tab.Container>]
+        </Tab.Container>
+    ]
 }

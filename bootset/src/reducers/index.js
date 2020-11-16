@@ -1,7 +1,5 @@
 import {combineReducers} from "redux";
-import {simpleJumbo, fluidJumbo} from "../references/jumbotron";
-import {formControls, simpleForm} from "../references/forms";
-import {listBasic, listTabbed} from "../references/lists";
+
 
 //Cards need to be added on
 
@@ -21,17 +19,29 @@ const toolsReducer = () => {
         {
             piece: "Jumbotron",
             connect: "jumbo",
-            structure: [{text: 'Jumbotron', id: 'jumbo', change: simpleJumbo}, {text: 'Fluid Jumbo', id: 'jumboFluid', change: fluidJumbo}]
+            structure: [
+                {text: 'Jumbotron', id: 'jumbo'},
+                {text: 'Fluid Jumbotron', id: 'jumboFluid'},
+                {text: 'Clear Jumbotron', id: 'jumboClear'}
+                ]
         },
         {
             piece: "Forms",
             connect: "form",
-            structure: [{text: 'Forms', id:'form', change: simpleForm}, {text: 'Form Controls', id: 'formControl', change: formControls}]
+            structure: [
+                {text: 'Forms', id:'form'},
+                {text: 'Form Controls', id: 'formControl'},
+                {text: 'Clear Form', id: 'formClear'}
+            ]
         },
         {
             piece: "List Groups",
             connect: "list",
-            structure: [{text: 'List', id: 'list', change: listBasic}, {text: 'Tabbed List', id: 'listTabbed', change: listTabbed}]
+            structure: [
+                {text: 'List', id: 'list'},
+                {text: 'Tabbed List', id: 'listTabbed'},
+                {text: 'Clear List', id: 'listClear'}
+            ]
         },
         {
             piece: "Footer",
@@ -55,40 +65,48 @@ const selectedToolReducer = (selectedTool = null, action) => {
 
 const selectedNavDisplayChange = (selectedNavChange = null, action) => {
     if (action.type === 'NAV_CHANGE_SELECTED') {
-        return action.payload
+        return action.payload;
     }
     return selectedNavChange;
 }
 const selectedNavDisplayColor = (selectedNavColor = 'grey', action) => {
     if(action.type === 'NAV_COLOR_CHANGE') {
-        return action.payload
+        return action.payload;
     }
     return selectedNavColor;
 }
 const selectedJumboDisplayChange = (selectedJumboChange = null, action) => {
     if (action.type === 'JUMBO_CHANGE_SELECTED') {
-        return action.payload
+        return action.payload;
     }
     return selectedJumboChange;
 }
 const selectedJumboDisplayColor = (selectedJumboColor = 'lightgrey', action) => {
     if(action.type === 'JUMBO_COLOR_CHANGE') {
-        return action.payload
+        return action.payload;
     }
     return selectedJumboColor;
 }
 const selectedFormDisplayChange = (selectedFormChange = null, action) => {
     if (action.type === 'FORM_CHANGE_SELECTED') {
-        return action.payload
+        return action.payload;
     }
     return selectedFormChange;
 }
+const selectedFormDisplayColor = (selectedFormColor = 'lightgrey', action) => {
+    if(action.type === 'FORM_COLOR_CHANGE'){
+        return action.payload;
+    }
+    return selectedFormColor;
+}
 const selectedListDisplayChange = (selectedListChange = null, action) => {
     if (action.type === 'LIST_CHANGE_SELECTED'){
-        return action.payload
+        return action.payload;
     }
     return selectedListChange;
 }
+
+
 
 export default combineReducers({
     tools: toolsReducer,
@@ -98,7 +116,8 @@ export default combineReducers({
     selectedFormChange: selectedFormDisplayChange,
     selectedListChange: selectedListDisplayChange,
     selectedNavColor: selectedNavDisplayColor,
-    selectedJumboColor: selectedJumboDisplayColor
+    selectedJumboColor: selectedJumboDisplayColor,
+    selectedFormColor: selectedFormDisplayColor
 })
 
 /* let example = x.map((item)=> {
