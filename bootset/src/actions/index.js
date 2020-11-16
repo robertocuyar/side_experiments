@@ -46,3 +46,9 @@ export const inputFormColor = color => {
         payload: color
     }
 }
+export const inputListColor = color => {
+    return {
+        type: 'LIST_COLOR_CHANGE',
+        payload: color
+    }
+}

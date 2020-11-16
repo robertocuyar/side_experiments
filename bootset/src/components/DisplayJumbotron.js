@@ -9,8 +9,6 @@ const DisplayJumbotron = ({change, color}) => {
             return simpleJumbo(color);
         case "jumboFluid":
             return fluidJumbo(color);
-        case "jumboClear":
-            return null;
         default:
             return null;
     }

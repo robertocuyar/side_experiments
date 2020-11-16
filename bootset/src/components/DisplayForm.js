@@ -9,8 +9,6 @@ const DisplayForm = ({change, color}) => {
             return simpleForm(color)[0];
         case "formControl":
             return formControls(color)[0];
-        case "formClear":
-            return null;
         default:
             return null;
 

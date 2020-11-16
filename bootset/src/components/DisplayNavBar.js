@@ -12,8 +12,6 @@ const DisplayNavBar = ({change, color}) => {
             return NavBarLogo(color)[0];
         case 'navSearch':
             return NavBarSearch(color)[0];
-        case 'navClear':
-            return null;
         default:
             return null;
     }

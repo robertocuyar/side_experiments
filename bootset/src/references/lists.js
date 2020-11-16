@@ -3,16 +3,20 @@ import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from "react-bootstrap/ListGroup";
+import Container from "react-bootstrap/Container"
+
 
 export const listBasic = color => {
     return [
-        <ListGroup style={{backgroundColor: color}} key={"listGroup"}>
+        <Container style={{backgroundColor: color}} key={"listGroup"}>
+        <ListGroup>
             <ListGroup.Item>Cras justo odio</ListGroup.Item>
             <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
             <ListGroup.Item>Morbi leo risus</ListGroup.Item>
             <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
             <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
         </ListGroup>
+    </Container>
     ]
 }
 

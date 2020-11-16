@@ -105,6 +105,12 @@ const selectedListDisplayChange = (selectedListChange = null, action) => {
     }
     return selectedListChange;
 }
+const selectedListDisplayColor = (selectedListColor = 'grey', action) => {
+    if(action.type === 'LIST_COLOR_CHANGE'){
+        return action.payload;
+    }
+    return selectedListColor;
+}
 
 
 
@@ -117,7 +123,8 @@ export default combineReducers({
     selectedListChange: selectedListDisplayChange,
     selectedNavColor: selectedNavDisplayColor,
     selectedJumboColor: selectedJumboDisplayColor,
-    selectedFormColor: selectedFormDisplayColor
+    selectedFormColor: selectedFormDisplayColor,
+    selectedListColor: selectedListDisplayColor
 })
 
 /* let example = x.map((item)=> {
