@@ -87,7 +87,7 @@
 
         }
 
-        const clearBuild= (buildInventory, inventoryNCItem) => {
+        const clearBuild = (buildInventory, inventoryNCItem) => {
             $(`#build_inventory ${buildInventory}`).each( () => {
                 $(buildInventory).remove();
                 $('.inventory').append(itemDisplay(inventoryNCItem))
