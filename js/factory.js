@@ -31,9 +31,9 @@
         }
 
         const updateListenerBI = () => {
-            $(".iron_plate_inventory, .copper_plate_inventory").draggable({revert: true})
+            $(".iron_plate_inventory, .copper_plate_inventory, .cement_inventory").draggable({revert: true})
             $('#build_inventory').droppable({
-                accept: ".iron_plate_inventory, .copper_plate_inventory",
+                accept: ".iron_plate_inventory, .copper_plate_inventory, .cement_inventory",
                 drop: function (event, ui) {
                     if (ui.draggable.hasClass("iron_plate_inventory")) {
                         ui.draggable.remove()
@@ -42,6 +42,10 @@
                     if (ui.draggable.hasClass("copper_plate_inventory")) {
                         ui.draggable.remove();
                         $(this).append(itemDisplay("copper_plate_build"))
+                    }
+                    if(ui.draggable.hasClass("cement_inventory")) {
+                        ui.draggable.remove();
+                        $(this).append(itemDisplay("cement_build"))
                     }
                 }
             })
@@ -66,10 +70,20 @@
             renderItem('#build_inventory', 'copper_plate_build');
             updateListenerBI()
         })
+        $(document).on('click', ".cement_furnace", function () {
+            burnOff(this);
+            renderItem('.inventory', 'cement_inventory');
+            updateListenerBI();
+        })
+        $(document).on('click', ".cement_inventory", function () {
+            burnOff(this);
+            renderItem('#build_inventory', 'cement_build');
+            updateListenerBI();
+        })
         const updateListenerDI = () => {
-            $(".iron_plate_furnace, .copper_plate_furnace").draggable({revert: true})
+            $(".iron_plate_furnace, .copper_plate_furnace, .cement_furnace").draggable({revert: true})
             $('.inventory').droppable({
-                accept: ".iron_plate_furnace, .copper_plate_furnace",
+                accept: ".iron_plate_furnace, .copper_plate_furnace, .cement_furnace",
                 drop: function (event, ui) {
                     if (ui.draggable.hasClass("iron_plate_furnace")) {
                         ui.draggable.remove()
@@ -79,6 +93,11 @@
                     if (ui.draggable.hasClass("copper_plate_furnace")) {
                         ui.draggable.remove()
                         $(this).append(itemDisplay("copper_plate_inventory"))
+                        updateListenerBI();
+                    }
+                    if(ui.draggable.hasClass("cement_furnace")){
+                        ui.draggable.remove();
+                        $(this).append(itemDisplay("cement_inventory"));
                         updateListenerBI();
                     }
 
