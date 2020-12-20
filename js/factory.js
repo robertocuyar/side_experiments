@@ -1,6 +1,6 @@
 (function ($) {
     "use strict"
-    $(document).ready(function () {lg
+    $(document).ready(function () {
         //TODO: make build inventory draggable
         //TODO drag last item into the build menu then double click the first adds a new item to the build inventory
         //TODO electricity dynamic upgradeable for furnaces
