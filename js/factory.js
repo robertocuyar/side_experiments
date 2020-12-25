@@ -1,4 +1,4 @@
-(function ($) {
+(($)=> {
     "use strict"
     $(document).ready(function () {
         //TODO: make build inventory draggable
