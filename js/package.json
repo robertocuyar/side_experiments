@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-gyp": "^7.1.2",
+    "rebuild": "^0.1.2",
+    "xcode": "^3.0.1"
   }
 }
