@@ -14,7 +14,7 @@ let confirmGreen = () => {
     }
 }
 
-let confirmRed = ()=> {
+let confirmRed = () => {
     let response2 = confirm("Do you like Red?");
     if (response2) {
         document.getElementById("red").innerHTML = positive + 'red.</a>';
@@ -27,14 +27,13 @@ let confirmRed = ()=> {
 
 }
 
-let confirmBlue = ()=> {
+let confirmBlue = () => {
     let response = confirm("Do you like Blue?");
-    if(response) {
+    if (response) {
         document.getElementById("blue").innerHTML = positive + 'blue.</a>';
 
         return "ff"
-    }
-    else {
+    } else {
         document.getElementById("blue").innerHTML = negative + 'blue.</a>';
         return "00"
     }
@@ -44,6 +43,7 @@ const backChange = () => document.getElementById('test_1').style.backgroundColor
 
 
 let displayArray = [];
+
 function defaultDisplay() {
     var i = 0;
     while (window.localStorage.getItem('response' + i)) {
@@ -55,9 +55,10 @@ function defaultDisplay() {
         i++;
     }
 }
+
 defaultDisplay();
 
-let storeData = function() {
+let storeData = function () {
     displayArray.push('response');
     let displayString = "";
     displayArray.forEach(function (color, i) {
@@ -75,17 +76,17 @@ let storeData = function() {
         //document.getElementById('display_data').innerHTML = dataShow;
     }
 }
-let clearLocal = function() {
-   let dataClear = window.localStorage.clear();
-   displayArray = [];
+let clearLocal = function () {
+    let dataClear = window.localStorage.clear();
+    displayArray = [];
     document.getElementById('display_data').innerHTML = "";
 
 }
 
-let erasePart = function(input){
+let erasePart = function (input) {
 
 }
-const addDNavbar = ()=> {
+const addDNavbar = () => {
     document.getElementById("screen_nav").innerHTML =
         `<nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
@@ -94,7 +95,7 @@ const addDNavbar = ()=> {
             </a>
         </nav>`
 }
-const addDJumbo =() =>{
+const addDJumbo = () => {
     document.getElementById("screen_jumbo").innerHTML =
         `<div class="jumbotron">
   <h1 class="display-4">Hello, world!</h1>

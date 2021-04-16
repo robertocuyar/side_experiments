@@ -9,18 +9,18 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 function chunk(array, size) {
-let resArr = [];
-array.forEach((item, index)=>{
-    for (let i = 0; i <= index; i++){
-        if(!resArr[i]){
-            resArr[i] = [];
+    let resArr = [];
+    array.forEach((item, index) => {
+        for (let i = 0; i <= index; i++) {
+            if (!resArr[i]) {
+                resArr[i] = [];
+            }
+            if (resArr[i].length < size) {
+                resArr[i] = [...resArr[i], item];
+                break;
+            }
         }
-        if(resArr[i].length < size){
-            resArr[i] = [...resArr[i], item];
-            break;
-        }
-    }
-});
+    });
 
     return resArr;
 }

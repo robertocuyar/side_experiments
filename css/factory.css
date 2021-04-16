@@ -1,46 +1,55 @@
 .factory_component {
     border: 1px solid black;
 }
+
 a {
     color: black !important;
     text-decoration: none !important;
 }
+
 .item {
     height: 125px !important;
     width: 150px !important;
 }
+
 .coal div {
     background-image: url("../img/coal.jpeg");
-   background-size: cover;
+    background-size: cover;
     background-repeat: no-repeat;
 
 }
+
 .iron div {
     background-image: url("../img/ironore.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .copper div {
     background-image: url("../img/copperore3.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
-.limestone div{
+
+.limestone div {
     background-image: url("../img/limestone.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .iron_plate_furnace div, .iron_plate_inventory div, .iron_plate_build div {
     background-image: url("../img/ironplate.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
-.copper_plate_furnace div, .copper_plate_inventory div, .copper_plate_build div{
+
+.copper_plate_furnace div, .copper_plate_inventory div, .copper_plate_build div {
     background-image: url("../img/copper_plate3.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
-.cement_furnace div, .cement_inventory div, .cement_build div{
+
+.cement_furnace div, .cement_inventory div, .cement_build div {
     background-image: url("../img/cement11.jpeg");
     background-size: cover;
     background-repeat: no-repeat;

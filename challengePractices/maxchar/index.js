@@ -9,7 +9,7 @@ function maxChar(str) {
     let obj = {};
     let result = "";
     let greatest = 0;
-    for(let char of str) {
+    for (let char of str) {
         // if(obj[char] >= 1){
         //     obj[char]++;
         // } else {
@@ -18,8 +18,8 @@ function maxChar(str) {
         obj[char] = obj[char] + 1 || 1
     }
 
-    for (const char in obj){
-        if (obj[char] > greatest){
+    for (const char in obj) {
+        if (obj[char] > greatest) {
             greatest = obj[char];
             result = char;
         }

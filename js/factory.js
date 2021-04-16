@@ -1,4 +1,4 @@
-(($)=> {
+(($) => {
     "use strict"
     $(document).ready(function () {
         //TODO: make build inventory draggable
@@ -42,7 +42,7 @@
                         ui.draggable.remove();
                         $(this).append(itemDisplay("copper_plate_build"))
                     }
-                    if(ui.draggable.hasClass("cement_inventory")) {
+                    if (ui.draggable.hasClass("cement_inventory")) {
                         ui.draggable.remove();
                         $(this).append(itemDisplay("cement_build"))
                     }
@@ -94,7 +94,7 @@
                         $(this).append(itemDisplay("copper_plate_inventory"))
                         updateListenerBI();
                     }
-                    if(ui.draggable.hasClass("cement_furnace")){
+                    if (ui.draggable.hasClass("cement_furnace")) {
                         ui.draggable.remove();
                         $(this).append(itemDisplay("cement_inventory"));
                         updateListenerBI();
@@ -106,19 +106,19 @@
         }
 
         const clearBuild = (buildInventory, inventoryNCItem) => {
-            $(`#build_inventory ${buildInventory}`).each( () => {
+            $(`#build_inventory ${buildInventory}`).each(() => {
                 $(buildInventory).remove();
                 $('.inventory').append(itemDisplay(inventoryNCItem))
                 updateListenerBI();
             })
         }
 
-        $('#clear_build').on('click',() => {
+        $('#clear_build').on('click', () => {
             clearBuild('.copper_plate_build', 'copper_plate_inventory');
             clearBuild('.iron_plate_build', 'iron_plate_inventory');
 
         })
-        $('#furnace').click( () => {
+        $('#furnace').click(() => {
             let interval = 1000;
             let burnCoal = setInterval(function () {
                 if ($('.coal_container').has('a').length === 0 || $('.iron_furnace').has('.iron').length === 0) {
@@ -145,7 +145,7 @@
                 }
             }, interval);
         })
-        $('#furnace_3').click(()=> {
+        $('#furnace_3').click(() => {
             let interval = 1500;
             let burnCoal = setInterval(() => {
                 if ($('.coal_container').has('a').length === 0 || $('.concrete_furnace').has('.limestone').length === 0) {
@@ -158,7 +158,7 @@
                 }
             }, interval);
         })
-        $('#build_smelter1').click( () => {
+        $('#build_smelter1').click(() => {
             if ($('#build_inventory .iron_plate_build').length >= 6) {
                 $('#copper_setup').removeClass('d-none');
                 consumeItem('.iron_plate_build', 6);
@@ -167,8 +167,8 @@
                 $('#error_message_cf').html('Can\'t build. Incorrect number of resources.');
             }
         })
-        $('#build_smelter2').click( () => {
-            if ($('#build_inventory .iron_plate_build').length >= 6 && $('#build_inventory .copper_plate_build').length >= 5 ) {
+        $('#build_smelter2').click(() => {
+            if ($('#build_inventory .iron_plate_build').length >= 6 && $('#build_inventory .copper_plate_build').length >= 5) {
                 $('#concrete_setup').removeClass('d-none');
                 consumeItem('.iron_plate_build', 6);
                 consumeItem('.copper_plate_build', 5);

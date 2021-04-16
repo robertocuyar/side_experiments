@@ -4,24 +4,30 @@
     --main-color: #79bac1;
     --bold-main-color: #2a7886;
 }
+
 body {
     background-color: var(--main-bg-color) !important;
 }
+
 .nav_main {
     background-color: var(--bold-color);
 }
+
 .nav_side {
     background-color: var(--bold-main-color);
     height: 80vh;
 
 }
-#title{
+
+#title {
     font-size: 100%;
 }
-.side_text{
+
+.side_text {
     color: white !important;
     text-decoration: none !important;
 }
+
 main {
     width: 70% !important;
 }

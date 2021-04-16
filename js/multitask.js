@@ -18,13 +18,14 @@ function doRequest() {
         .end();
 }
 
-function doHash(){
-    crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', ()=>{
+function doHash() {
+    crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
         console.log('Hash:', Date.now() - start);
     });
 }
+
 doRequest();
-fs.readFile('multitask.js', 'utf8', ()=>{
+fs.readFile('multitask.js', 'utf8', () => {
     console.log('FS:', Date.now() - start);
 });
 

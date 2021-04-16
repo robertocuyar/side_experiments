@@ -16,7 +16,7 @@ function reverseInt(n) {
 
     result += parseInt(str);
 
-    return Math.sign(n) === -1? result * -1 : result;
+    return Math.sign(n) === -1 ? result * -1 : result;
 
 }
 

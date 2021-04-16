@@ -1,7 +1,7 @@
 /**
 {border: 1px black solid;}*/
-.search_button_sm button{
-    border-color:#6c757d !important;
+.search_button_sm button {
+    border-color: #6c757d !important;
     border-left: 0 !important;
     height: 24px !important;
     box-sizing: border-box !important;
@@ -11,40 +11,49 @@
     padding-right: 6px !important;
     color: black;
 }
-.navbar_links_one{
+
+.navbar_links_one {
     z-index: 1001 !important;
 }
+
 .navbar_links_two {
     min-width: 16rem !important;
     min-height: 5rem !important;
     z-index: 1000 !important;
 }
-.navbar_links_two input{
+
+.navbar_links_two input {
     border-right: 0 !important;
     border-color: #6c757d !important;
     height: 24px !important;
     font-size: 16px !important;
 }
-.search_bar_container{
+
+.search_bar_container {
     box-sizing: border-box;
 }
+
 .search_button_sm {
     height: 22px !important;
 }
-.top_banner{
+
+.top_banner {
     background: url(../img/sandro-schuh-HgwY_YQ1m0w-unsplash.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
-section>div {
+
+section > div {
     margin: 0 !important;
     padding: 0 !important;
 }
+
 section a {
     padding: 0 !important;
 }
+
 section p {
     color: white;
     text-decoration: none;
@@ -60,7 +69,8 @@ section p {
     background-size: cover;
     padding: 0;
 }
-.basketball_section{
+
+.basketball_section {
     background: url(../img/basketball.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -68,6 +78,7 @@ section p {
     background-size: cover;
     padding: 0;
 }
+
 .soccer_section {
     background: url(../img/soccer.jpg) no-repeat center center;
     -webkit-background-size: cover;
@@ -76,6 +87,7 @@ section p {
     background-size: cover;
     padding: 0;
 }
+
 .football_section {
     background: url(../img/football.jpg) no-repeat center center;
     -webkit-background-size: cover;
@@ -84,6 +96,7 @@ section p {
     background-size: cover;
     padding: 0;
 }
+
 .baseball_section {
     background: url(../img/baseball.jpg) no-repeat center center;
     -webkit-background-size: cover;
@@ -92,6 +105,7 @@ section p {
     background-size: cover;
     padding: 0;
 }
+
 .events_section {
     background: url(../img/events.jpg) no-repeat center center;
     -webkit-background-size: cover;
@@ -100,6 +114,7 @@ section p {
     background-size: cover;
     padding: 0;
 }
+
 .adventure_section {
     background: url(../img/surf.jpg) no-repeat center center;
     -webkit-background-size: cover;
@@ -108,6 +123,7 @@ section p {
     background-size: cover;
     padding: 0;
 }
+
 .outreach_section {
     background: url(../img/track.jpg) no-repeat center center;
     -webkit-background-size: cover;
@@ -116,6 +132,7 @@ section p {
     background-size: cover;
     padding: 0;
 }
+
 section p {
     font-size: 45px;
     text-transform: uppercase;
@@ -126,24 +143,24 @@ section p {
     /* .drop_items {
          box-sizing: content-box !important;
      }*/
+    .navbar_links_one {
+        /*right: 120px !important;*/
+        left: -112px !important;
+        top: 46px !important;
+    }
 
-     .navbar_links_one {
-         /*right: 120px !important;*/
-         left: -112px !important;
-         top: 46px !important;
-     }
     .navbar_links_two {
         left: -200px !important;
         top: 46px !important;
     }
-    .top_banner{
+
+    .top_banner {
         min-height: 140px !important;
     }
+
     .section_img {
         min-height: 190px !important;
     }
-
-
 
 
 }
